@@ -18,6 +18,6 @@ class OpenaiService
 					max_tokens: 100 # might want to check this
       })
     # you might want to inspect the response and see what the api is giving you
-    return response["choices"][0]["message"]["content"]
+    return response
   end
 end
