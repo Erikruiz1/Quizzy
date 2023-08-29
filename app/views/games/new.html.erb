@@ -1,22 +1,6 @@
-<%= form_for @game do |f| %>
-
-  <div class="field">
-    <%= f.label :topic_id, "Topic" %>
-    <%= f.collection_select :topic_id, @topics, :id, :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :difficulty %>
-    <%= f.number_field :difficulty %>
-  </div>
-
-  <div class="field">
-    <%= f.label :numer_of_questions, "Number of Questions" %>
-    <%= f.number_field :numer_of_questions %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for @game do |f| %>
+    <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
+    <%= f.input :difficulty %>
+    <%= f.input :number_of_questions %>
+    <%= f.button :submit %>
 <% end %>
-Save to grepper
