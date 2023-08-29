@@ -1,0 +1,6 @@
+<%= simple_form_for @game do |f| %>
+    <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
+    <%= f.input :difficulty %>
+    <%= f.input :number_of_questions %>
+    <%= f.button :submit %>
+<% end %>
