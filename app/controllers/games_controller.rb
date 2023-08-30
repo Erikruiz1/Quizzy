@@ -16,6 +16,7 @@ class GamesController < ApplicationController
       @question = Question.new(QUESTIONS_DATA[count])
       @question.game = @game
       count += 1
+      @question.save
     end
     redirect_to game_path(@game)
   end
