@@ -1,0 +1,19 @@
+.footer {
+  background-color: black;
+  text-align: center;
+  color: white;
+}
+
+.footer li{
+  list-style: none;
+  // margin: 5px;
+  display: inline-block;
+}
+
+.footer-logo img {
+  width: 50px;
+}
+
+.footer-bottom {
+  margin-bottom: 0px;
+}
