@@ -17,16 +17,23 @@ class GamesController < ApplicationController
     end
 
     GameParticipation.create(game_id: @game.id, user_id: current_user.id)
-    count = 0
-    service = OpenaiService.new(build_prompt)
+    # count = 0
+    service = OpenaiService.new(build_prompt(topics_string))
     @response = service.call
-    @game.number_of_questions.times do
-      @question = Question.new(QUESTIONS_DATA[count])
+    @data = JSON.parse(@response)
+    @data["questions"].each do |question|
+      @question = Question.new(content:question["question"], answer: question["right_answer"])
       @question.game = @game
-      count += 1
       @question.save
     end
-    
+
+    # @game.number_of_questions.times do
+    #   @question = Question.new(QUESTIONS_DATA[count])
+    #   @question.game = @game
+    #   count += 1
+    #   @question.save
+    # end
+
     redirect_to game_path(@game)
   end
 
@@ -40,7 +47,7 @@ class GamesController < ApplicationController
 
   private
 
-  def build_prompt
+  def build_prompt(topics_string)
     "Generate a JSON with #{@game.number_of_questions}
       questions, they should not be multiple choice questions.
       Include a key for the 'topics' #{topics_string}.
