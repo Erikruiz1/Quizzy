@@ -23,6 +23,10 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    if params[:prompt]
+      service = OpenaiService.new(params[:prompt])
+      @response = service.call
+    end
   end
 
   private
