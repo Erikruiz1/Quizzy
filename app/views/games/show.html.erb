@@ -1,1 +1,13 @@
 <h1>This is the show page for game <%= @game.id %></h1>
+
+<h1>Ask OpenAI</h1>
+
+<%= form_tag(root_path, method: :get) do %>
+  <%= text_area_tag :prompt, params[:prompt], rows: 5, placeholder: "Enter your question" %>
+  <%= submit_tag "Ask" %>
+<% end %>
+
+<% if @response %>
+  <h2>Response:</h2>
+  <p><%= @response %></p>
+<% end %>
