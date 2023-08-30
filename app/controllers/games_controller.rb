@@ -7,17 +7,26 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.create(game_params)
+    topics_string = " "
+
     params[:game][:topics].each do |topic|
-      GameTopic.create(game_id: @game.id, topic_id: topic) unless topic == ""
+      unless topic == ""
+        @game_topic = GameTopic.create(game_id: @game.id, topic_id: topic) unless topic == ""
+        topics_string = topics_string + @game_topic.topic.name + " "
+      end
     end
+
     GameParticipation.create(game_id: @game.id, user_id: current_user.id)
     count = 0
+    service = OpenaiService.new(build_prompt)
+    @response = service.call
     @game.number_of_questions.times do
       @question = Question.new(QUESTIONS_DATA[count])
       @question.game = @game
       count += 1
       @question.save
     end
+    
     redirect_to game_path(@game)
   end
 
@@ -30,6 +39,15 @@ class GamesController < ApplicationController
   end
 
   private
+
+  def build_prompt
+    "Generate a JSON with #{@game.number_of_questions}
+      questions, they should not be multiple choice questions.
+      Include a key for the 'topics' #{topics_string}.
+      Include a key for 'difficulty' #{@game.difficulty} out of 10.
+      Include a key for the 'right_answer'.
+      Include a key for the 'hint'."
+  end
 
   def game_params
     params.require(:game).permit(:topics, :difficulty, :number_of_questions)
