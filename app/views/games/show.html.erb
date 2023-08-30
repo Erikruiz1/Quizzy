@@ -1,13 +1,18 @@
 <h1>This is the show page for game <%= @game.id %></h1>
 
-<h1>Ask OpenAI</h1>
+  <div>
+    <% @questions.each do |question| %>
+      <div>
+        <%= question.content %>
+      </div>
+      <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' } do |f| %>
+        <%= f.input :question_id, as: :hidden, input_html: { value: question.id } %>
+        <%= f.input :content, label: "Your Guess:" %>
+        <%= f.button :submit %>
+      <% end %>
+    <% end %>
+  </div>
 
-<%= form_tag(root_path, method: :get) do %>
-  <%= text_area_tag :prompt, params[:prompt], rows: 5, placeholder: "Enter your question" %>
-  <%= submit_tag "Ask" %>
-<% end %>
+  <%# HINTS %>
 
-<% if @response %>
-  <h2>Response:</h2>
-  <p><%= @response %></p>
-<% end %>
+  <%# INPUT FIELD FOR USER %>

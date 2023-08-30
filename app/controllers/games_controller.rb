@@ -31,10 +31,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    if params[:prompt]
-      service = OpenaiService.new(params[:prompt])
-      @response = service.call
-    end
+    @guess = Guess.new
+    @questions = @game.questions
   end
 
   private
