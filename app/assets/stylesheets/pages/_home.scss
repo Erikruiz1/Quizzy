@@ -1,26 +1,17 @@
-// Specific CSS for your home-page
-// .homepage-title {
-//   font-family: Dela Gothic One;
-//   font-weight: 400;
-//   font-size: 64px;
-//   color: #3E3B72;
-//   font-style: normal;
-//   line-height: normal;
-
-// }
-
-// #homepage-container {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-
 #homepage-container {
   text-align: center;
-  // display: inline-block;
   justify-content: center;
   margin: 100px;
+  margin-top: 0px;
+  border-radius: 0px 0px 70px 70px;
+  width: 1240px;
+  height: 722px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(107deg, #76C6E1 -24.85%, #A6A3D1 54.98%);
 }
 
 .homepage-title {
@@ -31,6 +22,10 @@
   font-style: normal;
   line-height: normal;
 
+}
+
+.homepage-content {
+  justify-content: center;
 }
 
 p {
@@ -48,10 +43,6 @@ p {
   flex-shrink: 0;
   display: inline-block;
   background-color: #3E3B72;
-  // background-image:
-  //     url(https://img.freepik.com/vektoren-kostenlos/handgezeichnetes-flaches-grooviges-psychedelisches-muster_23-2149074157.jpg?w=996&t=st=1693134813~exp=1693135413~hmac=1000992d37e00e427fe3ea163dcaba31aef9c0a71264fe910f81e2f86088de02);
-  // background-size: cover;
-  // background-repeat: no-repeat;
   color: #fff;
   font-size: 24px;
   font-family: Dela Gothic One;
