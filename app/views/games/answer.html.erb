@@ -1,0 +1,13 @@
+
+
+<h1>Hello</h1>
+<%= @question.content %>
+<%= @guess.content %>
+<% if @guess.correct == true %>
+  <p>Your answer is correct!</p>
+  <%= @question.elaborate %>
+<% else %>
+  <%= @hint.content %>
+<% end %>
+
+<%= link_to "Try again", game_path(@guess.question.game) %>

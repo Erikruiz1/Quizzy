@@ -4,8 +4,7 @@
       <div>
         <%= @question.content %>
       </div>
-      <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' },
-      data: { guesses_target: "form", action: "submit->guesses#send" }  do |f| %>
+      <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' } do |f| %>
         <%= f.input :question_id, as: :hidden, input_html: { value: @question.id } %>
         <%= f.input :content, label: "Your Guess:" %>
         <%= f.button :submit %>
@@ -17,3 +16,7 @@
   <%# HINTS %>
 
   <%# INPUT FIELD FOR USER %>
+
+
+
+     <%# , data: { guesses_target: "form", action: "submit->guesses#send" } %>
