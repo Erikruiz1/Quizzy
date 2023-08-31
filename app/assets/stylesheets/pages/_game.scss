@@ -1,0 +1,92 @@
+.image-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-basis: 100%;
+}
+
+.unsplash-image {
+    max-width: 50%;
+    max-height: 100%;
+}
+
+.form-box-game {
+    background: white;
+    padding: 40px;
+    width: 1200px;
+    max-width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    border: 3px solid #EFF1F1;
+}
+
+.flex-container {
+    display: flex;
+}
+
+[data-controller="guesses"] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.form-box-game .btn-primary {
+    background-color: #3E3B72;
+    border-radius: 40px;
+    border: none;
+    margin-bottom: 10px;
+    height: 48px;
+    width: 100%;
+    color: #FFF;
+    text-align: center;
+    font-family: Dela Gothic One;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.form-containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-box-game .custom-input {
+    border-radius: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-family: Poppins;
+}
+
+.custom-input {
+    color: #373870;
+    font-family: Poppins;
+}
+
+.question-content {
+    color: #373870;
+    text-align: center;
+    font-family: Dela Gothic One;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.your-guess-label {
+    color: #373870;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;  
+}

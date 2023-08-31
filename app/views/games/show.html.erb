@@ -1,16 +1,36 @@
-<h1>This is the show page for game <%= @game.id %></h1>
-
-  <div data-controller="guesses">
-      <div>
-        <%= @question.content %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Show Page</title>
+  <!-- Include your CSS and other head elements here -->
+  <link rel="stylesheet" type="text/css" href="your-styles.css">
+</head>
+<body>
+  <div class="form-containers">
+    <div class="form-box-game">
+      <div class="flex-container">
+        <div data-controller="guesses">
+          <div class="question-content">
+            <%= @question.content %>
+          </div>
+          <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' },
+          data: { guesses_target: "form", action: "submit->guesses#send" }  do |f| %>
+            <%= f.input :question_id, as: :hidden, input_html: { value: @question.id } %>
+            <%= f.label :content, "Your Guess:", class: "your-guess-label" %>
+            <%= f.input :content, label: false, input_html: { class: "custom-input guess-content" } %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div class="image-container">
+          <img src="https://source.unsplash.com/random" alt="Unsplash Image" class="unsplash-image">
+        </div>
       </div>
-      <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' },
-      data: { guesses_target: "form", action: "submit->guesses#send" }  do |f| %>
-        <%= f.input :question_id, as: :hidden, input_html: { value: @question.id } %>
-        <%= f.input :content, label: "Your Guess:" %>
-        <%= f.button :submit %>
-      <% end %>
+    </div>
   </div>
+</body>
+</html>
+
+
 
   <%# ADD EMPTY DIV FOR API GUESS RESPONSE %>
 
