@@ -1,25 +1,61 @@
+// BUTTONS
 .difficulty-item {
   display: inline-block;
 }
 
 .difficulty-selector {
-  // position: absolute;
   transform: scale(0);
 }
 
 .difficulty-selector + label {
   cursor: pointer;
-  // display: inline-block;
   font-size: 16px;
   border-radius: 50rem;
-  padding: 0.1rem 0.5rem;
+  padding: 0.1rem 1rem;
   background-color: #3E3B72;
   color: #EFF1F1;
-  // margin-right: 0.6rem;
-  // margin-bottom: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .difficulty-selector:checked + label {
-  background-color: #7E73FF;
-  color: white;
+  background-color: #EFF1F1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #3E3B72;
+  transform: scale(1.10);
 }
+
+.questions-item {
+  display: inline-block;
+}
+
+.questions-selector {
+  transform: scale(0);
+}
+
+.questions-selector + label {
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50rem;
+  padding: 0.1rem 1rem;
+  background-color: #FDFFFF;
+  color: #3E3B72;
+  margin-bottom: 0.4rem;
+}
+
+.questions-selector:checked + label {
+  background-color: #3E3B72;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #EFF1F1;
+  transform: scale(1.10);
+}
+
+.create_topic {
+  border-radius: 50rem;
+  padding: 0.1rem 1rem;
+  background-color: #BFBED0;
+}
+
+.create-button {
+  
+}
+// CONTAINER

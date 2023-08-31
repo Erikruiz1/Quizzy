@@ -3,31 +3,31 @@
 
 
   <%= simple_form_for @game do |f| %>
-<div class="row">
+<div class="row selection-container">
   <div class="col-sm-2">
       <%= f.input :difficulty,
-      as: :radio_buttons, input_html: { class: "difficulty-selector" },
-                  item_wrapper_class: 'difficulty-item',
-      collection: { 'I am a begginer' => 3, 'I am smart' => 6, 'I am a genius' => 10 } %>
-
+        as: :radio_buttons,
+          input_html: { class: "difficulty-selector" },
+        item_wrapper_class: 'difficulty-item',
+        collection: { 'I am a begginer' => 3, 'I am smart' => 6, 'I am a genius' => 10 } %>
   </div>
   <div class="col-sm-2">
-      <%= f.input :number_of_questions,
-      as: :radio_buttons, input_html: { class: "questions-selector" },
-                  item_wrapper_class: 'questions-item',
-       collection: { '3' => 3, '20' => 20, '30' => 30 } %>
-
+    <%= f.input :number_of_questions,
+      as: :radio_buttons,
+      input_html: { class: "questions-selector" },
+      item_wrapper_class: 'questions-item',
+      collection: { '3' => 3, '20' => 20, '30' => 30 } %>
   </div>
   <div class="col-sm-2">
-    <input type="topic" id="create_topic" placeholder="Your topic">
-    <label for="create_topic">Create your topic</label>
+    <label for="create_topic">Create your topic!</label>
+    <%= text_field_tag :create_topic, nil, class: "create_topic", placeholder: "Your topic" %>
   </div>
   <div class="col-sm-2">
-    <input type="topic" id="Invite_friends" placeholder="Your friends">
     <label for="Invite_friends">Invite your friends!</label>
+    <%= text_field_tag :create_topic, nil, class: "create_topic", placeholder: "Your topic" %>
   </div>
 </div>
-      <%= f.button :submit, class: "btn btn-primary" %>
+      <%= f.button :submit, class: "create-button" %>
   <% end %>
 
 
