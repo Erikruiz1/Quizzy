@@ -1,54 +1,41 @@
 #homepage-container {
+  display: flex;
   text-align: center;
   justify-content: center;
-  margin: 100px;
-  margin-top: 0px;
-  border-radius: 0px 0px 70px 70px;
-  width: 1240px;
-  height: 722px;
-  flex-shrink: 0;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 200px 0;
+  border-radius: 0px 0px 70px 70px;
   background: linear-gradient(107deg, #76C6E1 -24.85%, #A6A3D1 54.98%);
+  margin-left: 20px;
+  margin-right: 20px;
+
 }
 
 .homepage-title {
-  font-family: Dela Gothic One;
   font-weight: 400;
-  font-size: 64px;
-  color: #3E3B72;
-  font-style: normal;
-  line-height: normal;
+  color: $light-gray;
+  font-size: 90px;
+  margin: 20px;
 
 }
 
-.homepage-content {
-  justify-content: center;
-}
 
-p {
+.describtion {
   font-size: 20px;
-  font-family: Poppins;
-  margin: 0;
-  padding-top: 30px;
-  padding-bottom: 50px;
-  color: #3E3B72;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  color: $light-gray;
 }
 
 .get-started-btn {
-  width: 320px;
-  height: 70px;
-  flex-shrink: 0;
+  padding: 17px 96px;
   display: inline-block;
   background-color: #3E3B72;
   color: #fff;
   font-size: 24px;
-  font-family: Dela Gothic One;
   text-align: center;
   text-decoration: none;
-  line-height: 70px;
   cursor: pointer;
   border-radius: 50px;
 }
