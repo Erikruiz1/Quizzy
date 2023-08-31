@@ -1,6 +1,36 @@
-<%= simple_form_for @game do |f| %>
-    <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
-    <%= f.input :difficulty %>
-    <%= f.input :number_of_questions %>
-    <%= f.button :submit %>
-<% end %>
+
+
+
+
+  <%= simple_form_for @game do |f| %>
+<div class="row align-self-center">
+  <div class="col-sm-2">
+      <%= f.input :difficulty, as: :radio_buttons, collection: { 'I am a begginer' => 3, 'I am smart' => 6, 'I am a genius' => 10 } %>
+  </div>
+  <div class="col-sm-2">
+      <%= f.input :number_of_questions, as: :radio_buttons, collection: { '3' => 3, '20' => 20, '30' => 30 } %>
+      <label id>
+  </div>
+  <div class="col-sm-2">
+    <input type="topic" id="create-topic" placeholder="Your topic">
+    <label for="create-topic">Create your topic</label>
+  </div>
+  <div class="col-sm-2">
+    <input type="topic" id="Invite-friends" placeholder="Your friends">
+    <label for="Invite-friends">Invite your friends!</label>
+  </div>
+</div>
+      <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+
+
+
+<div class="card-trip">
+  <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3371&q=80" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>title</h2>
+      <p>name</p>
+    </div>
+  </div>
+</div>
