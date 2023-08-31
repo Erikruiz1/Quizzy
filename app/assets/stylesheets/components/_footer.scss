@@ -1,8 +1,10 @@
 .footer {
-  background-color: black;
+  background-color: $black;
   text-align: center;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
+  padding-top: 20px;
+  margin: 20px 20px 0px 20px;
 }
 
 .footer a {
@@ -15,22 +17,28 @@
 }
 
 .footer-logo img {
-  width: 50px;
-  margin-top: 25px;
+  width: 110px;
+  margin-top: 33px;
 }
 
-.about-links {
-  padding: 17px;
+.about-links-1 {
+  padding: 17px 0px 17px 17px;
+}
+
+.about-links-2 {
+  padding: 17px 17px 17px 0px;
 }
 
 .social li {
-  // align-items: baseline;
   display: inline-block;
-  margin-top: 35px;
+  margin-top: 45px;
+  font-size: 20px;
+
 }
 
 .copyright p {
   font-size: 12px;
   color: #9F9C9C;
-  padding: 8px;
+  padding: 4px;
+  margin-bottom: 4px;
 }
