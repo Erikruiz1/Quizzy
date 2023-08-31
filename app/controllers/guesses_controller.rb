@@ -18,7 +18,7 @@ class GuessesController < ApplicationController
 
     @guess.correct = @data["is_close"]
     @guess.save
-
+    
     redirect_to game_path(@guess.question.game)
   end
 

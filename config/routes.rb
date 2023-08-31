@@ -10,4 +10,5 @@ Rails.application.routes.draw do
       get :hint
     end
   end
+  get "/" :games
 end
