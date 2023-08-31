@@ -1,16 +1,20 @@
 .navbar-lewagon {
-  justify-content: center;
+  top: 0;
+  z-index: 100;
   background: #F2F0F5;
   border-radius: 50px;
-  margin-top: 15px;
+  margin-top: -56px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   width: 1200px;
   height: 55px;
-  flex-shrink: 0;
   padding: 10px 20px;
   margin-left: auto;
   margin-right: auto;
   font-family: "Dela Gothic One";
+  // position:absolute;
+  position: sticky;
+  top: 16px;
+
 }
 
 .navbar-lewagon .navbar-collapse {
