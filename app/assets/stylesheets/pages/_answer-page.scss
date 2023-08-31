@@ -1,0 +1,44 @@
+.answer-page-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: $headers-font;
+  margin: 16vh 50px;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  height: 50vh;
+}
+
+.answer-page-card h1 {
+  color: $purple;
+  font-size: 32px;
+}
+
+.answer-page-card p {
+  display: flex;
+  justify-content: center;
+  font-family: $p-font;
+  font-size: 24px;
+}
+
+.info-p-tags {
+  color: #C6BFBF;
+  font-size: 18px;
+}
+
+#green-corr-btn {
+  color: rgb(119, 252, 119);
+
+}
+
+.btn-answer-page {
+  font-family: $p-font;
+  text-decoration: none;
+  background-color: #373870;
+  color: white;
+  padding: 16px 16px;
+  border-radius: 20px;
+  font-size: 18px;
+}

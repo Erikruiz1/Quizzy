@@ -40,9 +40,9 @@ class GamesController < ApplicationController
   def answer
     @game = Game.find(params[:id])
     # Improvement for multiuser
-    @guess = Guess.last
+    @guess = current_user.guesses.last
     @question = @guess.question
-    @hint = Hint.last
+    @hint = current_user.hints.last
   end
 
   private
