@@ -2,33 +2,33 @@
 
 
 
-  <%= simple_form_for @game do |f| %>
-<div class="row selection-container">
-  <div class="col-sm-2">
+<%= simple_form_for @game do |f| %>
+  <div class="row selection-container d-flex justify-content-evenly">
+    <div class="col-sm-2">
       <%= f.input :difficulty,
         as: :radio_buttons,
-          input_html: { class: "difficulty-selector" },
+        input_html: { class: "difficulty-selector" },
         item_wrapper_class: 'difficulty-item',
         collection: { 'I am a begginer' => 3, 'I am smart' => 6, 'I am a genius' => 10 } %>
+    </div>
+    <div class="col-sm-2 questions-container">
+      <%= f.input :number_of_questions,
+        as: :radio_buttons,
+        input_html: { class: "questions-selector" },
+        item_wrapper_class: 'questions-item',
+        collection: { '3' => 3, '20' => 20, '30' => 30 } %>
+    </div>
+    <div class="col-sm-2 topic-container d-flex flex-column align-items-center ">
+      <label for="create_topic">Create your topic!</label>
+      <%= text_field_tag :create_topic, nil, class: "create_topic", placeholder: "Your topic" %>
+    </div>
+    <div class="col-sm-2 friends-container d-flex flex-column align-items-center ">
+      <label for="Invite_friends">Invite your friends!</label>
+      <%= text_field_tag :create_topic, nil, class: "create_topic", placeholder: "Your topic" %>
+    </div>
   </div>
-  <div class="col-sm-2">
-    <%= f.input :number_of_questions,
-      as: :radio_buttons,
-      input_html: { class: "questions-selector" },
-      item_wrapper_class: 'questions-item',
-      collection: { '3' => 3, '20' => 20, '30' => 30 } %>
-  </div>
-  <div class="col-sm-2">
-    <label for="create_topic">Create your topic!</label>
-    <%= text_field_tag :create_topic, nil, class: "create_topic", placeholder: "Your topic" %>
-  </div>
-  <div class="col-sm-2">
-    <label for="Invite_friends">Invite your friends!</label>
-    <%= text_field_tag :create_topic, nil, class: "create_topic", placeholder: "Your topic" %>
-  </div>
-</div>
-      <%= f.button :submit, class: "create-button" %>
-  <% end %>
+  <%= f.button :submit, class: "create-button" %>
+<% end %>
 
 
 

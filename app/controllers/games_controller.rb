@@ -6,7 +6,6 @@ class GamesController < ApplicationController
   end
 
   def create
-    raise
     @game = Game.create(game_params)
     params[:game][:topics].each do |topic|
       GameTopic.create(game_id: @game.id, topic_id: topic) unless topic == ""

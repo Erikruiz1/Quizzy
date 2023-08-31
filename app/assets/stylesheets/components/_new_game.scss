@@ -1,4 +1,4 @@
-// BUTTONS
+// RADIO BUTTONS
 .difficulty-item {
   display: inline-block;
 }
@@ -52,10 +52,41 @@
 .create_topic {
   border-radius: 50rem;
   padding: 0.1rem 1rem;
-  background-color: #BFBED0;
+  background-color: #F2F0F5;
 }
 
+// START BUTTON
+
 .create-button {
-  
+  cursor: pointer;
+  background-color: #F3C722;
+  color: #EFF1F1;
+  padding: 10px 20px;
+  border-radius: 28px;
+  font-size: 17px;
+  margin-left: 1006px;
+  margin-top: -31px;
 }
+
 // CONTAINER
+
+.selection-container {
+  background-color: #EFF1F1;
+  border-radius: 3rem;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.questions-container {
+  background-color: #9795B9;
+  border-radius: 33px;
+  margin-top: 8px;
+  margin-bottom: 57px;
+}
+
+.topic-container, .friends-container {
+  background-color: #9795B9;
+  border-radius: 24px;
+  margin-top: 8px;
+  margin-bottom: 77px;
+}
