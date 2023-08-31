@@ -9,9 +9,9 @@ export default class extends Controller {
     console.log("hello");
   }
 
-  send() {
-    // event.preventDefault()
-    // console.log(event);
+  send(event) {
+    event.preventDefault()
+    console.log(event);
     // fetch(this.formTarget.action, {
     //   method: "POST", // Could be dynamic with Stimulus values
     //   headers: { "Accept": "application/json" },

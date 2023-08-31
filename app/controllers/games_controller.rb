@@ -32,7 +32,9 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @guess = Guess.new
-    @questions = @game.questions
+    @question = @game.questions.find do |q|
+      q.guesses.all? { |guess| !guess.correct }
+    end
   end
 
   private
