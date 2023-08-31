@@ -8,8 +8,6 @@ class OpenaiService
     @prompt = prompt
   end
 
-
-
   def call
     response = client.chat(
       parameters: {
