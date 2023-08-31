@@ -37,6 +37,14 @@ class GamesController < ApplicationController
     end
   end
 
+  def answer
+    @game = Game.find(params[:id])
+    # Improvement for multiuser
+    @guess = Guess.last
+    @question = @guess.question
+    @hint = Hint.last
+  end
+
   private
 
   def build_prompt(topics_string)
