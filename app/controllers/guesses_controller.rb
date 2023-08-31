@@ -1,13 +1,19 @@
+
 class GuessesController < ApplicationController
   def create
     @guess = Guess.new(guess_params)
     @guess.user = current_user
       if @guess.save
-
         # Handle successful save - e.g., redirect with a success message
       else
         # Handle failure - e.g., render the 'show' template with error messages
       end
+  end
+g
+  def api
+    respond_to do |format|
+      format.json render partial:"shared/navbar"
+    end
   end
 
   private

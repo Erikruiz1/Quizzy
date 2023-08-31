@@ -1,11 +1,11 @@
 <h1>This is the show page for game <%= @game.id %></h1>
 
-  <div>
+  <div data-controller="guesses">
     <% @questions.each do |question| %>
       <div>
         <%= question.content %>
       </div>
-      <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' } do |f| %>
+      <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' }, data: { guesses_target: "form", action: "submit->guesses#sendGuess" } do |f| %>
         <%= f.input :question_id, as: :hidden, input_html: { value: question.id } %>
         <%= f.input :content, label: "Your Guess:" %>
         <%= f.button :submit %>

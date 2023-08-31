@@ -12,4 +12,5 @@ Rails.application.routes.draw do
       get :hint
     end
   end
+  post "api/post_guess", to: "guesses#api"
 end
