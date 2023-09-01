@@ -64,8 +64,9 @@
   padding: 10px 20px;
   border-radius: 28px;
   font-size: 17px;
-  margin-left: 1006px;
-  margin-top: -31px;
+  position: absolute;
+  right: 361px;
+  top: 253px;
 }
 
 // CONTAINER
@@ -73,8 +74,8 @@
 .selection-container {
   background-color: #EFF1F1;
   border-radius: 3rem;
-  margin-left: 50px;
-  margin-right: 50px;
+  // margin-left: 50px;
+  // margin-right: 50px;
 }
 
 .questions-container {
@@ -99,7 +100,6 @@
 }
 
 .background {
-  background: linear-gradient(107deg, #76C6E1 -24.85%, #A6A3D1 54.98%);
   margin-left: 20px;
   margin-right: 20px;
 }
