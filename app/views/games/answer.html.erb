@@ -1,0 +1,28 @@
+
+<div class="container d-flex">
+  <div class="answer-page-card p-2 flex-grow-1">
+
+    <div class="mb-3">
+      <h1><%= @question.content %></h1>
+    </div>
+
+    <div>
+      <p>Your guess</p>
+      <h2><%= @guess.content %></h2>
+    </div>
+
+    <div class="mb-3">
+      <% if @guess.correct == true %>
+        <p>Your answer is&nbsp;<span id="green-corr-btn">correct</span>&nbsp;!</p>
+        <p class="info-p-tags"><%= @question.elaborate %></p>
+      <% else %>
+        <p class="info-p-tags"><%= @hint.content %></p>
+      <% end %>
+    </div>
+
+    <div>
+      <%= link_to "Keep going", game_path(@guess.question.game), class: "btn-answer-page" %>
+    </div>
+
+  </div>
+</div>
