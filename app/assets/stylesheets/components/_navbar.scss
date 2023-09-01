@@ -30,3 +30,26 @@
 .btn-rounded {
   border-radius: 50px;
 }
+
+.avatar-round {
+  border: 2px solid $purple;
+  border-radius: 50%;
+  width: 40px;
+}
+
+.dropdown-menu {
+  border-radius: 15px;
+  background: linear-gradient(107deg, #76C6E1 -24.85%, #A6A3D1 54.98%);
+  border: 2px solid $purple;
+  padding: 8px 10px 8px 10px;
+
+}
+
+.dropdown-item {
+color: #F2F0F5;
+&:hover {
+  background-color: #F2F0F5;
+  color: $black;
+  border-radius: 13px;
+}
+}
