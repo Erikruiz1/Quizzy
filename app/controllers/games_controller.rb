@@ -50,8 +50,12 @@ class GamesController < ApplicationController
   def build_prompt(topics_string)
     "Generate a JSON with #{@game.number_of_questions}
       questions, they should not be multiple choice questions.
-      Include a key for the 'topics' #{topics_string}.
-      Include a key for 'difficulty' #{@game.difficulty} out of 10.
+      The questions should include questions with both open ended answers and precise answers.
+      Include a key for the 'topics' #{topics_string},
+      you can also mix different topics in a single question.
+      Include a key for 'difficulty',
+      on a scale from 1 to 10, 1 being suited for children aged 7, 10 being suited for adult experts in the topic,
+      the difficulty of the questions you generate should be #{@game.difficulty} out of 10.
       Include a key for the 'right_answer'.
       Include a key for the 'hint'."
   end
