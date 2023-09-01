@@ -3,6 +3,7 @@ class GamesController < ApplicationController
     @game = Game.new
     @topics = Topic.all
     @users = User.all
+    @topic = Topic.new
   end
 
   def create
