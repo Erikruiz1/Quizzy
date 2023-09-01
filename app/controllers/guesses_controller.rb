@@ -14,6 +14,7 @@ class GuessesController < ApplicationController
       @hint.save
     else
       @guess.question.elaborate = @data["elaborate"]
+      @guess.question.save
     end
 
     @guess.correct = @data["is_close"]
