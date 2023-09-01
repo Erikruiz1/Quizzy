@@ -41,3 +41,12 @@
   border-radius: 20px;
   font-size: 18px;
 }
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer{
+  margin-top: auto;
+}
