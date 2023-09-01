@@ -58,16 +58,23 @@
 }
 
 // FOR START BUTTON
-.create-button {
+.start-button {
   cursor: pointer;
-  background-color: #F3C722;
+  background-color: #76C6E1;
   color: #EFF1F1;
   padding: 10px 20px;
   border-radius: 28px;
   font-size: 17px;
   position: absolute;
-  right: 370px;
-  top: 430px;
+  right: 537px;
+  top: 334px;
+}
+
+.btn:hover {
+  background-color: #76C6E1;
+  color: #EFF1F1;
+  transform: scale(1.02);
+
 }
 
 // FOR CONTAINERS
@@ -76,6 +83,7 @@
   border-radius: 33px;
   margin-top: 8px;
   margin-bottom: 190px;
+  height: 150px;
 }
 
 #questions {
@@ -83,6 +91,7 @@
   border-radius: 24px;
   margin-top: 8px;
   margin-bottom: 190px;
+  height: 105px;
 }
 
 #topics {
@@ -90,10 +99,13 @@
   border-radius: 24px;
   margin-top: 8px;
   margin-bottom: 77px;
+  height: 220px;
+
 }
 
 .new-dashboard {
-  background-color: white;
-  height: 52vh;
+  background-color: #EFF1F1;
+  height: 28vh;
   border-radius: 2rem;
+  margin: 0 4vw;
 }
