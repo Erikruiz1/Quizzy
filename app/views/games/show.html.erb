@@ -1,16 +1,19 @@
 
 <div class="container">
   <div data-controller="guesses" class="show-page-card">
+
     <div>
       <h1 id="q-header"><%= @question.content %></h1>
     </div>
+
     <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' } do |f| %>
-      <div class="d-flex flex-md-column align-items-center">
+      <div class="d-flex flex-column align-items-center justify-content-center">
         <%= f.input :question_id, as: :hidden, input_html: { value: @question.id, id: 'question-id-input' } %>
-        <%= f.input :content, label: "Your Guess:", input_html: { id: 'content-input' } %>
+        <%= f.input :content, label: false, input_html: { placeholder: 'Your answer?', id: 'content-input' } %>
         <%= f.button :submit, "Guess", id: "guess-submit-button" %>
       </div>
     <% end %>
+
   </div>
 </div>
 
