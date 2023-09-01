@@ -2,6 +2,10 @@
 <div class="container">
   <div data-controller="guesses" class="show-page-card">
 
+    <%= link_to new_game_path, class: "x-icon" do %>
+      <i class="fa-regular fa-x fa-lg" style="color: #cfcfcf;"></i>
+    <% end %>
+
     <div>
       <h1 id="q-header"><%= @question.content %></h1>
     </div>

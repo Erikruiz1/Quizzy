@@ -2,6 +2,10 @@
 <div class="container d-flex">
   <div class="answer-page-card p-2 flex-grow-1">
 
+    <%= link_to new_game_path, class: "x-icon" do %>
+      <i class="fa-regular fa-x fa-lg" style="color: #cfcfcf;"></i>
+    <% end %>
+
     <div class="mb-3">
       <h1><%= @question.content %></h1>
     </div>

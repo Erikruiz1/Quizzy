@@ -1,5 +1,6 @@
 
 .show-page-card {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -10,6 +11,12 @@
   background-color: #FFFFFF;
   border-radius: 50px;
   height: 50vh;
+}
+
+.x-icon {
+  position: absolute;
+  top: 32px;
+  left: 48px;
 }
 
 #q-header {
