@@ -1,0 +1,73 @@
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 0px 70px 70px;
+    background: linear-gradient(107deg, #76C6E1 -24.85%, #A6A3D1 54.98%);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.form-box {
+    background: transparent;
+    padding: 40px;
+    width: 400px;
+    max-width: 80%;
+    border-radius: 10px;
+    border-radius: 40px;
+    border: 3px solid #EFF1F1;
+    margin-top: 150px;
+    margin-bottom: 60px;
+}
+
+.form-box a {
+    color: #373870;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.form-inputs {
+    color: #FFF;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.form-box .btn-primary {
+    background-color: #3E3B72;
+    border-radius: 40px;
+    border: none;
+    margin-bottom: 10px;
+    height: 48px;
+    width: 100%;
+    color: #FFF;
+    text-align: center;
+    font-family: Dela Gothic One;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form-container h2 {
+    color: #EFF1F1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.form-box .custom-input {
+    border-radius: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.form-check-label {
+    color: #373870;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
