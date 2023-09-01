@@ -65,8 +65,8 @@
   border-radius: 28px;
   font-size: 17px;
   position: absolute;
-  right: 361px;
-  top: 253px;
+  right: 377px;
+  top: 344px;
 }
 
 // CONTAINER
@@ -74,8 +74,9 @@
 .selection-container {
   background-color: #EFF1F1;
   border-radius: 3rem;
-  // margin-left: 50px;
-  // margin-right: 50px;
+  // display: flex;
+  align-items: center;
+  font-family: $headers-font;
 }
 
 .questions-container {

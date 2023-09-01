@@ -19,13 +19,7 @@
           item_wrapper_class: 'questions-item',
           collection: { '3' => 3, '20' => 20, '30' => 30 } %>
       </div>
-      <div class="col-sm-2 topic-container">
-        <label for="create_topic">Create your topic!</label>
-        <%= text_field_tag :create_topic, nil, class: "create_topic", placeholder: "Your topic" %>
-      </div>
       <div class="col-sm-2 friends-container">
-        <label for="Invite_friends">Invite your friends!</label>
-        <%= text_field_tag :create_topic, nil, class: "create_topic", placeholder: "Your topic" %>
         <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
         <%= f.button :submit, class: "create-button" %>
       </div>
