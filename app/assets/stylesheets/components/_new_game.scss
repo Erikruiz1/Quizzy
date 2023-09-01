@@ -81,12 +81,25 @@
   background-color: #9795B9;
   border-radius: 33px;
   margin-top: 8px;
-  margin-bottom: 57px;
+  margin-bottom: 190px;
 }
 
-.topic-container, .friends-container {
+.topic-container {
+  background-color: #9795B9;
+  border-radius: 24px;
+  margin-top: 8px;
+  margin-bottom: 190px;
+}
+
+.friends-container {
   background-color: #9795B9;
   border-radius: 24px;
   margin-top: 8px;
   margin-bottom: 77px;
+}
+
+.background {
+  background: linear-gradient(107deg, #76C6E1 -24.85%, #A6A3D1 54.98%);
+  margin-left: 20px;
+  margin-right: 20px;
 }
