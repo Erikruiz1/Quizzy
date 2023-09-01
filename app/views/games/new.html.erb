@@ -25,6 +25,7 @@
     <div class="col-sm-2 friends-container d-flex flex-column align-items-center ">
       <label for="Invite_friends">Invite your friends!</label>
       <%= text_field_tag :create_topic, nil, class: "create_topic", placeholder: "Your topic" %>
+      <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
     </div>
   </div>
   <%= f.button :submit, class: "create-button" %>
