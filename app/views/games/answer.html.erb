@@ -1,14 +1,32 @@
 
+<div class="container d-flex">
+  <div class="answer-page-card p-2 flex-grow-1">
 
-<h1>Hello</h1>
-<%= @question.content %>
-<%= @guess.content %>
-<% if @guess.correct == true %>
-  <p>Your answer is correct!</p>
-  <%= @question.elaborate %>
-<% else %>
-  <%= @hint.content %>
-<% end %>
+    <%= link_to new_game_path, class: "x-icon" do %>
+      <i class="fa-regular fa-x fa-lg" style="color: #cfcfcf;"></i>
+    <% end %>
 
-<%= link_to "Try again", game_path(@guess.question.game) %>
+    <div class="mb-3">
+      <h1><%= @question.content %></h1>
+    </div>
 
+    <div class="d-flex flex-md-column align-items-md-center">
+      <p>Your guess</p>
+      <h2><%= @guess.content %></h2>
+    </div>
+
+    <div class="mb-3">
+      <% if @guess.correct == true %>
+        <p>Your answer is&nbsp;<span id="green-corr-btn">correct</span>&nbsp;!</p>
+        <p class="info-p-tags"><%= @question.elaborate %></p>
+      <% else %>
+        <p class="info-p-tags">Hint: <%= @hint.content %></p>
+      <% end %>
+    </div>
+
+    <div>
+      <%= link_to "Keep going", game_path(@guess.question.game), class: "btn-answer-page" %>
+    </div>
+
+  </div>
+</div>
