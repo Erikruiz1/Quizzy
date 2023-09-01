@@ -24,6 +24,14 @@
     </div>
   <% end %>
 
+  <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' } do |f| %>
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <%= f.input :name %>
+      <%= f.input :category %>
+      <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
+    </div>
+  <% end %>
+
 </div>
 
 <%# <div class="card-trip">

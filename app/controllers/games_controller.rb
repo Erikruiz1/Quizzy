@@ -36,6 +36,9 @@ class GamesController < ApplicationController
     @question = @game.questions.find do |q|
       q.guesses.all? { |guess| !guess.correct }
     end
+    if @question.nil?
+      redirect_to new_game_path
+    end
   end
 
   def answer
