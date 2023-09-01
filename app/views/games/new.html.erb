@@ -1,8 +1,7 @@
 
 <div class= "container">
-
   <%= simple_form_for @game do |f| %>
-    <div class="row d-flex justify-content-evenly">
+    <div class="row d-flex justify-content-evenly new-dashboard">
       <div class="col-sm-2" id="difficulty">
         <%= f.input :difficulty,
           as: :radio_buttons,
@@ -19,11 +18,10 @@
       </div>
       <div class="col-sm-2" id="topics">
         <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
-        <%= f.button :submit, class: "create-button" %>
+        <%= f.button :submit, class: "start-button" %>
       </div>
     </div>
   <% end %>
-
 </div>
 
 <%# <div class="card-trip">
