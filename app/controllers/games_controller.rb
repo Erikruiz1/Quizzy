@@ -12,7 +12,7 @@ class GamesController < ApplicationController
     params[:game][:topics].each do |topic|
       unless topic == ""
         @game_topic = GameTopic.create(game_id: @game.id, topic_id: topic) unless topic == ""
-        topics_string = topics_string + @game_topic.topic.name + " "
+        topics_string = topics_string + @game_topic.topic.name + ", "
       end
     end
 
@@ -50,12 +50,10 @@ class GamesController < ApplicationController
   def build_prompt(topics_string)
     "Generate a JSON with #{@game.number_of_questions}
       questions, they should not be multiple choice questions.
-      The questions should include questions with both open ended answers and precise answers.
+      The questions should require open ended answers to make it more challenging.
       Include a key for the 'topics' #{topics_string},
       you can also mix different topics in a single question.
-      Include a key for 'difficulty',
-      on a scale from 1 to 10, 1 being suited for children aged 7, 10 being suited for adult experts in the topic,
-      the difficulty of the questions you generate should be #{@game.difficulty} out of 10.
+      #{QUIZ_DIFFICULTY[@game.difficulty - 1]}.
       Include a key for the 'right_answer'.
       Include a key for the 'hint'."
   end
@@ -64,3 +62,7 @@ class GamesController < ApplicationController
     params.require(:game).permit(:topics, :difficulty, :number_of_questions)
   end
 end
+
+QUIZ_DIFFICULTY = ["the questions should be suited for children aged 7 to 14 so please make the questions very easy to answer",
+                  "the questions should be suited for children and adults alike so please make the questions challenging to answer",
+                  "the questions should be suited for adult experts in the above topics so please make the questions very difficult to answer."]
