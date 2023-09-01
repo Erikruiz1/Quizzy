@@ -11,3 +11,26 @@
   border-radius: 50px;
   height: 50vh;
 }
+
+#q-header {
+  color: $purple;
+  font-size: 32px;
+}
+
+// #question-id-input {
+
+// }
+
+#content-input {
+  width: 500px;
+}
+
+#guess-submit-button {
+  font-family: $p-font;
+  text-decoration: none;
+  background-color: #373870;
+  color: white;
+  padding: 16px 16px;
+  border-radius: 20px;
+  font-size: 18px;
+}

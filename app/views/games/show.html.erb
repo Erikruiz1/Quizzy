@@ -1,15 +1,19 @@
 
-
-<div data-controller="guesses" class="show-page-card">
-  <div>
-    <%= @question.content %>
+<div class="container">
+  <div data-controller="guesses" class="show-page-card">
+    <div>
+      <h1 id="q-header"><%= @question.content %></h1>
+    </div>
+    <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' } do |f| %>
+      <div class="d-flex flex-md-column align-items-center">
+        <%= f.input :question_id, as: :hidden, input_html: { value: @question.id, id: 'question-id-input' } %>
+        <%= f.input :content, label: "Your Guess:", input_html: { id: 'content-input' } %>
+        <%= f.button :submit, "Guess", id: "guess-submit-button" %>
+      </div>
+    <% end %>
   </div>
-  <%= simple_form_for @guess, url: { controller: 'guesses', action: 'create' } do |f| %>
-    <%= f.input :question_id, as: :hidden, input_html: { value: @question.id, id: 'question-id-input' } %>
-    <%= f.input :content, label: "Your Guess:", input_html: { id: 'content-input' } %>
-    <%= f.button :submit, "Guess", id: "guess-submit-button" %>
-  <% end %>
 </div>
+
 
 
   <%# ADD EMPTY DIV FOR API GUESS RESPONSE %>
