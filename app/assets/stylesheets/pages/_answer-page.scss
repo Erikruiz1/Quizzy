@@ -1,4 +1,5 @@
 .answer-page-card {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,6 +10,12 @@
   background-color: #FFFFFF;
   border-radius: 50px;
   height: 50vh;
+}
+
+.x-icon {
+  position: absolute;
+  top: 32px;
+  left: 48px;
 }
 
 .answer-page-card h1 {
@@ -40,13 +47,4 @@
   padding: 16px 16px;
   border-radius: 20px;
   font-size: 18px;
-}
-
-body{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-footer{
-  margin-top: auto;
 }
