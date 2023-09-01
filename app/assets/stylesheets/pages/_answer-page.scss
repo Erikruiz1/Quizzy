@@ -20,14 +20,16 @@
 
 .answer-page-card h1 {
   color: $purple;
-  font-size: 32px;
+  font-size: 2em;
+  text-align: center;
 }
 
 .answer-page-card p {
   display: flex;
   justify-content: center;
   font-family: $p-font;
-  font-size: 24px;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .info-p-tags {
