@@ -42,9 +42,13 @@
 .btn-answer-page {
   font-family: $p-font;
   text-decoration: none;
-  background-color: #373870;
+  background-color: #7e7ca1;
   color: white;
   padding: 16px 16px;
   border-radius: 20px;
   font-size: 18px;
+
+  &:hover {
+    background-color: #373870;
+  }
 }
