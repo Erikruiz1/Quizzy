@@ -17,10 +17,10 @@
 
     <div class="mb-3">
       <% if @guess.correct == true %>
-        <p>Your answer is&nbsp;<span id="green-corr-btn">correct</span>&nbsp;!</p>
+        <p>Your answer is&nbsp;<span id="green-correct">correct</span>&nbsp;!</p>
         <p class="info-p-tags"><%= @question.elaborate %></p>
       <% else %>
-        <p class="info-p-tags">Hint: <%= @hint.content %></p>
+        <p class="info-p-tags"><span id="hint-word">Hint:</span>&nbsp;<%= @hint.content %></p>
       <% end %>
     </div>
 

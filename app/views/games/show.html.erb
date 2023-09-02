@@ -14,7 +14,10 @@
       <div class="d-flex flex-column align-items-center justify-content-center">
         <%= f.input :question_id, as: :hidden, input_html: { value: @question.id, id: 'question-id-input' } %>
         <%= f.input :content, label: false, input_html: { placeholder: 'Your answer?', id: 'content-input' } %>
-        <%= f.button :submit, "Guess", id: "guess-submit-button" %>
+        <button type="submit" id="guess-submit-button" name="commit" value="Guess">
+  <i class="fa-solid fa-play" style="color: #ffffff;"></i>
+</button>
+
       </div>
     <% end %>
 
