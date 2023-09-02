@@ -17,22 +17,12 @@
           collection: { '3' => 3, '20' => 20, '30' => 30 } %>
       </div>
       <div class="col-sm-2" id="topics">
-        <%# <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
+        <%= f.input :topics, collection: @topics, input_html: { multiple: true, class: "hidden-input" } %>
         <%= f.button :submit, class: "start-button" %>
       </div>
     </div>
   <% end %>
 </div>
-
-<%# <div class="card-trip">
-  <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3371&q=80" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>title</h2>
-      <p>name</p>
-    </div>
-  </div>
-</div> %>
 
 <div class="card-grid">
   <% @topics.each do |topic| %>
