@@ -11,15 +11,15 @@
   font-size: 16px;
   border-radius: 50rem;
   padding: 0.1rem 1rem;
-  background-color: #3E3B72;
-  color: #EFF1F1;
+  background-color: #FDFFFF;
+  color: #3E3B72;
   margin-bottom: 0.4rem;
 }
 
 .difficulty-selector:checked + label {
-  background-color: #EFF1F1;
+  background-color: #3E3B72;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  color: #3E3B72;
+  color: #EFF1F1;
   transform: scale(1.10);
 }
 
@@ -66,8 +66,10 @@
   border-radius: 28px;
   font-size: 17px;
   position: absolute;
-  right: 537px;
-  top: 334px;
+  // right: 537px;
+  // top: 334px;
+  margin-top: 9vh;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
@@ -81,32 +83,35 @@
 #difficulty {
   background-color: #9795B9;
   border-radius: 33px;
-  margin-top: 8px;
-  margin-bottom: 190px;
+  margin-top: 1.7vh;
+  // margin-bottom: 190px;
   height: 150px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 #questions {
   background-color: #9795B9;
   border-radius: 24px;
-  margin-top: 8px;
-  margin-bottom: 190px;
+  margin-top: 4vh;
+  // margin-bottom: 190px;
   height: 105px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-#topics {
-  background-color: #9795B9;
-  border-radius: 24px;
-  margin-top: 8px;
-  margin-bottom: 77px;
-  height: 220px;
-
-}
+// #topics {
+//   background-color: #9795B9;
+//   border-radius: 24px;
+//   margin-top: 8px;
+//   margin-bottom: 77px;
+//   height: 220px;
+//   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+// }
 
 .new-dashboard {
   background-color: #EFF1F1;
-  height: 28vh;
+  height: 22vh;
   border-radius: 2rem;
   margin: 0 4vw;
   font-family: $p-font;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
