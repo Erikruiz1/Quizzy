@@ -33,6 +33,9 @@
         <div>
           <h2><%= topic.name %></h2>
           <p><%= topic.category %></p>
+          <%# AÑADO ESTO PARA ENVIAR LA SELECCION %>
+          <%= f.hidden_field :selected_topics, value: '', class: 'selected-topics' %>
+          <%# // %>
         </div>
       </div>
     </div>

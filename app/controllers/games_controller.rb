@@ -59,7 +59,8 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:topics, :difficulty, :number_of_questions)
+    # AÑADO SELECTED TOPICS
+    params.require(:game).permit(:topics, :difficulty, :number_of_questions, :selected_topics)
   end
 end
 
