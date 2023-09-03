@@ -59,7 +59,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    # AÑADO SELECTED TOPICS
+    # ADD SELECTDE TOPICS and i think i have to delete :"topics"
     params.require(:game).permit(:topics, :difficulty, :number_of_questions, :selected_topics)
   end
 end

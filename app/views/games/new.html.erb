@@ -6,14 +6,14 @@
         <%= f.input :difficulty,
           as: :radio_buttons,
           input_html: { class: "difficulty-selector" },
-          item_wrapper_class: 'difficulty-item',
+          item_wrapper_class: "questions-item",
           collection: { 'I am a begginer' => 1, 'I am smart' => 2, 'I am a genius' => 3 } %>
       </div>
       <div class="col-sm-2" id="questions">
         <%= f.input :number_of_questions,
           as: :radio_buttons,
           input_html: { class: "questions-selector" },
-          item_wrapper_class: 'questions-item',
+          item_wrapper_class: "questions-item",
           collection: { '3' => 3, '15' => 15, '20' => 20, '30' => 30 } %>
       </div>
       <div class="col-sm-2" id="topics">
@@ -21,21 +21,22 @@
         <%= f.button :submit, class: "start-button" %>
       </div>
     </div>
+          <%# ADDED TO SEND THE SELCTION %>
+    <%= f.hidden_field :selected_topics, value: '', data: { controller: "topic-selector" } %>
   <% end %>
 </div>
 
-<div class="card-grid">
+<div class="card-grid" data-controller="topic-selector">
   <% @topics.each do |topic| %>
-    <div class="card-trip topic-selection">
+    <div class="card-trip topic-selection"
+    data-topic-name="<%= topic.name %>"
+    data-action="click->topic-selector#toggleSelection">
       <% image_url = "https://source.unsplash.com/featured/?#{topic.category}" %>
       <img src="<%= image_url %>" />
       <div class="card-trip-infos">
         <div>
           <h2><%= topic.name %></h2>
           <p><%= topic.category %></p>
-          <%# AÑADO ESTO PARA ENVIAR LA SELECCION %>
-          <%= f.hidden_field :selected_topics, value: '', class: 'selected-topics' %>
-          <%# // %>
         </div>
       </div>
     </div>
