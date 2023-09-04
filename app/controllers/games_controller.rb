@@ -34,7 +34,11 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @guess = Guess.new
     @question = @game.questions.find do |q|
-      q.guesses.all? { |guess| !guess.correct }
+      count = 0
+      q.guesses.all? do |guess|
+        count += 1
+        !guess.correct && count < 3
+      end
     end
     if @question.nil?
       redirect_to new_game_path
@@ -46,6 +50,7 @@ class GamesController < ApplicationController
     # Improvement for multiuser
     @guess = current_user.guesses.last
     @question = @guess.question
+    @count = @question.guesses.all.size
     @hint = current_user.hints.last
   end
 

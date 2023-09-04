@@ -19,6 +19,8 @@
       <% if @guess.correct == true %>
         <p>Your answer is&nbsp;<span id="green-corr-btn">correct</span>&nbsp;!</p>
         <p class="info-p-tags"><%= @question.elaborate %></p>
+      <% elsif @count > 2 %>
+        <p class="info-p-tags">Your 3 guesses were incorrect. Go to next question.</p>
       <% else %>
         <p class="info-p-tags">Hint: <%= @hint.content %></p>
       <% end %>
