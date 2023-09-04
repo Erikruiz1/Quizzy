@@ -51,7 +51,6 @@
                               class: "invisible topic-checkbox-card",
                               data: { action: "change->toggle#toggle" , id: "topic-#{index + 1}",
                                       toggle_target: "topics",
-
                               }
                             },
                             label_html: {class: "d-none"} %>
@@ -60,19 +59,6 @@
         <% end %>
       </div>
     </div>
-    <% end %>
-    <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' } do |f| %>
-      <div class="d-flex flex-column align-items-center justify-content-center">
-        <%= f.input :name %>
-        <%= f.input :category,
-          input_html: {
-            data: {
-              toggle_target: "category",
-              action: "input->create-game-btn#change"
-            }
-          } %>
-        <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
-      </div>
     <% end %>
 
   </div>
