@@ -50,6 +50,7 @@ class GamesController < ApplicationController
     # Improvement for multiuser
     @guess = current_user.guesses.last
     @question = @guess.question
+    @count = @question.guesses.all.size
     @hint = current_user.hints.last
   end
 
