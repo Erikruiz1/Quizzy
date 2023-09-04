@@ -13,12 +13,6 @@
   height: 50vh;
 }
 
-.x-icon {
-  position: absolute;
-  top: 32px;
-  left: 48px;
-}
-
 #q-header {
   color: $purple;
   font-size: 2em;
@@ -54,11 +48,13 @@
 }
 
 #guess-submit-button {
-  font-family: $p-font;
-  text-decoration: none;
-  background-color: #373870;
+  background-color: #7e7ca1;
   color: white;
-  padding: 14px 16px;
+  padding: 16px 24px;
   border-radius: 20px;
   font-size: 18px;
+
+  &:hover {
+    background-color: #373870;
+  }
 }

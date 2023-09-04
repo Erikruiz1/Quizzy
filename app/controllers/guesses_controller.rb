@@ -26,7 +26,7 @@ class GuessesController < ApplicationController
   private
 
   def build_prompt(guess)
-    "Here we have a question: #{@guess.question.content}
+    "Here we have a question: #{@guess.question.content},
     and a guess to the answer: #{guess.content}.
     Return three keys in JSON format: 'is_close', 'hint', 'elaborate'.
     If the guess is not close enough to the correct answer 'is_close' is false

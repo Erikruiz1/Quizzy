@@ -35,10 +35,14 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @guess = Guess.new
     @question = @game.questions.find do |q|
-      q.guesses.all? { |guess| !guess.correct }
+      count = 0
+      q.guesses.all? do |guess|
+        count += 1
+        !guess.correct && count < 3
+      end
     end
     if @question.nil?
-      redirect_to new_game_path
+      redirect_to summary_game_path(@game)
     end
   end
 
@@ -47,7 +51,26 @@ class GamesController < ApplicationController
     # Improvement for multiuser
     @guess = current_user.guesses.last
     @question = @guess.question
+    @count = @question.guesses.all.size
     @hint = current_user.hints.last
+  end
+
+  def summary
+    @game = Game.find(params[:id])
+    @questions = @game.questions
+    @correct_questions = 0
+    @number_of_guesses = 0
+    @questions.each do |question|
+      guesses_count = 0
+      question.guesses.each do |guess|
+        guesses_count += 1
+        if guess.correct == true
+          @correct_questions += 1
+          @number_of_guesses += guesses_count
+        end
+      end
+    end
+    @guesses_per_correct_answer = (@number_of_guesses.to_f / @correct_questions).round(1)
   end
 
   private
