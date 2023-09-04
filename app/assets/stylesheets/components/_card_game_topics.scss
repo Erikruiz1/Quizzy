@@ -10,7 +10,6 @@
 .card-trip > img {
   height: 150px;
   width: 197px;
-  // object-fit: cover;
   margin-top: 19px;
   margin-left: 16px;
   margin-right: 16px;
@@ -24,22 +23,19 @@
 }
 
 .card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+  font-size: 14px;
 }
 
 
 .card-trip .card-trip-infos {
   padding: 16px;
-  display: flex;
+  display: table-cell;
   justify-content: space-between;
   align-items: flex-end;
-  position: relative;
+
 }
 
 .card-trip-infos {
-  position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
