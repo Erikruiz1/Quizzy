@@ -1,6 +1,19 @@
 
-<div class="container d-flex">
-  <div class="answer-page-card p-2 flex-grow-1">
+<div class="container">
+
+    <div class="progress-bar">
+      <% @display_states.each do |d| %>
+        <% if d == "correct" %>
+          <div class="box answered-true"></div>
+        <% elsif d == "incorrect"%>
+          <div class="box answered-false"></div>
+        <% else %>
+          <div class="box answered-empty"></div>
+        <% end %>
+      <% end %>
+    </div>
+
+  <div class="answer-page-card p-2">
 
     <%= link_to new_game_path, class: "x-icon" do %>
       <i class="fa-regular fa-x fa-lg"></i>
