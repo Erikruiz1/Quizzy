@@ -27,7 +27,7 @@
 <div class="card-grid">
   <% @topics.each do |topic| %>
     <div class="card-trip topic-selection">
-      <% image_url = "https://source.unsplash.com/featured/?#{topic.category}" %>
+      <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
       <img src="<%= image_url %>" />
       <div class="card-trip-infos">
         <div>
