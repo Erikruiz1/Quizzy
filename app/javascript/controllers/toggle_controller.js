@@ -1,9 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="toggle"
 export default class extends Controller {
   static targets = ["difficulty", "questions", "topics", "category", "startButton"];
-
+  checkboxSelected = false; // Initialize the property
 
   get selectedDifficulty() {
     return Array.from(this.difficultyTargets).find(radio => radio.checked);
@@ -14,20 +13,22 @@ export default class extends Controller {
   }
 
   toggle(event) {
-    const label = document.getElementById(event.target.dataset.id)
-    label.classList.toggle("topic-checkbox-card")
-    this.change()
+    const label = document.getElementById(event.target.dataset.id);
+    label.classList.toggle("topic-checkbox-card");
+    this.checkboxSelected = event.target.checked; // Update the checkboxSelected here as well
+    this.checkAllConditions(); // Check conditions whenever a toggle happens
   }
 
-  change(event) {
-    console.log("difficulty", this.selectedDifficulty);
-    console.log("quesdtions",this.selectedQuestions);
-    console.log("topics", this.topicsTarget);
-    if (this.selectedDifficulty
-      && this.selectedQuestions
-      && event.target.checked
-    ) {
-      this.startButtonTarget.classList.remove('d-none')
+  change() {
+    this.checkAllConditions();
+  }
+
+  checkAllConditions() {
+    if (this.selectedDifficulty && this.selectedQuestions && this.checkboxSelected) {
+      this.startButtonTarget.classList.remove('d-none');
+    } else {
+      this.startButtonTarget.classList.add('d-none');
     }
   }
 }
+
