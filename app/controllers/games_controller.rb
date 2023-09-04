@@ -33,7 +33,11 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @guess = Guess.new
     @question = @game.questions.find do |q|
-      q.guesses.all? { |guess| !guess.correct }
+      count = 0
+      q.guesses.all? do |guess|
+        count += 1
+        !guess.correct && count < 3
+      end
     end
   end
 
