@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :games, only: [:new, :create, :show] do
     member do
       get :answer
+      get :summary
     end
   end
 
