@@ -3,6 +3,7 @@ class GamesController < ApplicationController
     @game = Game.new
     @topics = Topic.all
     @users = User.all
+    @topic = Topic.new
   end
 
   def create
@@ -38,6 +39,9 @@ class GamesController < ApplicationController
         count += 1
         !guess.correct && count < 3
       end
+    end
+    if @question.nil?
+      redirect_to new_game_path
     end
   end
 

@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   font-family: $headers-font;
-  margin: 0 8vw;
+  margin: 0 4vw;
   background-color: #FFFFFF;
   border-radius: 50px;
   height: 50vh;
@@ -20,14 +20,16 @@
 
 .answer-page-card h1 {
   color: $purple;
-  font-size: 32px;
+  font-size: 2em;
+  text-align: center;
 }
 
 .answer-page-card p {
   display: flex;
   justify-content: center;
   font-family: $p-font;
-  font-size: 24px;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .info-p-tags {
