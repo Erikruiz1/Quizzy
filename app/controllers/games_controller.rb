@@ -33,6 +33,15 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @guess = Guess.new
+    @display_states = progress_bar(@game)
+    # @game.questions.order(:id).each do |q|
+    #   unless q.guesses.empty?
+    #     q.guesses.last.correct == true ? @display_states.push("correct") : @display_states.push("incorrect")
+    #   else
+    #     @display_states.push("empty")
+    #   end
+    # end
+
     @question = @game.questions.find do |q|
       count = 0
       q.guesses.all? do |guess|
@@ -52,6 +61,7 @@ class GamesController < ApplicationController
     @question = @guess.question
     @count = @question.guesses.all.size
     @hint = current_user.hints.last
+    @display_states = progress_bar(@game)
   end
 
   def summary
@@ -88,6 +98,19 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:topics, :difficulty, :number_of_questions)
   end
+
+  def progress_bar(game)
+    display_states = []
+    game.questions.order(:id).each do |q|
+      unless q.guesses.empty?
+        q.guesses.last.correct == true ? display_states.push("correct") : display_states.push("incorrect")
+      else
+        display_states.push("empty")
+      end
+    end
+    display_states
+  end
+
 end
 
 QUIZ_DIFFICULTY = ["the questions should be suited for children aged 7 to 14 so please make the questions very easy to answer",
