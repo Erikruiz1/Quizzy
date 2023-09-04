@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :guesses, only: [:create]
+  resources :topics, only: [:create]
 
   resources :games, only: [:new, :create, :show] do
     member do
       get :answer
+      get :summary
     end
   end
 
