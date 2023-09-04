@@ -12,12 +12,6 @@
   height: 50vh;
 }
 
-.x-icon {
-  position: absolute;
-  top: 32px;
-  left: 48px;
-}
-
 .answer-page-card h1 {
   color: $purple;
   font-size: 2em;
@@ -37,16 +31,24 @@
   font-size: 18px;
 }
 
-#green-corr-btn {
+#green-correct {
   color: #5CFF7C;
+}
+
+#hint-word {
+  color: #FFD639;
 }
 
 .btn-answer-page {
   font-family: $p-font;
   text-decoration: none;
-  background-color: #373870;
+  background-color: #7e7ca1;
   color: white;
   padding: 16px 16px;
   border-radius: 20px;
   font-size: 18px;
+
+  &:hover {
+    background-color: #373870;
+  }
 }

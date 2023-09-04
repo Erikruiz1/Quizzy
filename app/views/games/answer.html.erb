@@ -3,7 +3,7 @@
   <div class="answer-page-card p-2 flex-grow-1">
 
     <%= link_to new_game_path, class: "x-icon" do %>
-      <i class="fa-regular fa-x fa-lg" style="color: #cfcfcf;"></i>
+      <i class="fa-regular fa-x fa-lg"></i>
     <% end %>
 
     <div class="mb-3">
@@ -17,12 +17,12 @@
 
     <div class="mb-3">
       <% if @guess.correct == true %>
-        <p>Your answer is&nbsp;<span id="green-corr-btn">correct</span>&nbsp;!</p>
+        <p>Your answer is&nbsp;<span id="green-correct">correct</span>&nbsp;!</p>
         <p class="info-p-tags"><%= @question.elaborate %></p>
       <% elsif @count > 2 %>
         <p class="info-p-tags">Your 3 guesses were incorrect. Go to next question.</p>
       <% else %>
-        <p class="info-p-tags">Hint: <%= @hint.content %></p>
+        <p class="info-p-tags"><span id="hint-word">Hint:</span>&nbsp;<%= @hint.content %></p>
       <% end %>
     </div>
 
