@@ -35,14 +35,6 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @guess = Guess.new
     @display_states = progress_bar(@game)
-    # @game.questions.order(:id).each do |q|
-    #   unless q.guesses.empty?
-    #     q.guesses.last.correct == true ? @display_states.push("correct") : @display_states.push("incorrect")
-    #   else
-    #     @display_states.push("empty")
-    #   end
-    # end
-
     @question = @game.questions.find do |q|
       count = 0
       q.guesses.all? do |guess|

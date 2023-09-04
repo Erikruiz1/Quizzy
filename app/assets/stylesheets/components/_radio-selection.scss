@@ -1,0 +1,67 @@
+// DIFFICULTY RADIO BUTTONS
+.difficulty-item {
+  display: inline-block;
+}
+
+.difficulty-selector {
+  transform: scale(0);
+}
+
+.difficulty-selector + label {
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50rem;
+  padding: 0.1rem 1rem;
+  background-color: #FDFFFF;
+  color: #3E3B72;
+  margin-bottom: 0.4rem;
+}
+
+.difficulty-selector:checked + label {
+  background-color: #3E3B72;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #EFF1F1;
+  transform: scale(1.10);
+}
+// TOPICS  EACH CARDS SELECTION
+
+.topic-checkbox-card{
+  background-color: #3E3B72;
+  color: #FDFFFF;
+}
+
+
+// QUESTIONS RADIO BUTTONS
+.questions-item {
+  display: inline-block;
+}
+
+.questions-selector {
+  transform: scale(0);
+}
+
+.questions-selector + label {
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50rem;
+  padding: 0.1rem 1rem;
+  background-color: #FDFFFF;
+  color: #3E3B72;
+  margin-bottom: 0.4rem;
+}
+
+.questions-selector:checked + label {
+  background-color: #3E3B72;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #EFF1F1;
+  transform: scale(1.10);
+}
+
+// FOR TOPICS
+#game_topics {
+  border-radius: 1rem;
+  padding: 3rem 0rem;
+  background-color: #F2F0F5;
+  text-align: center;
+}
+
