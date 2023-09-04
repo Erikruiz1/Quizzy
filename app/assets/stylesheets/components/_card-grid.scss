@@ -2,28 +2,31 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
   margin: 6vh 13vh;
   justify-items: center;
-  margin-left: 25vh;
-  margin-right: 25vh;
+  margin-left: 18vh;
+  margin-right: 18vh;
   background-color: #F2F0F5;
   border: 1px solid #ccc;
   border-radius: 28px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
     margin: 6vh 2vh;
     margin-left: 5vh;
     margin-right: 5vh;
   }
-}
+} 
 
 .card-trip {
   margin-top: 3vh;
+}
+
+.card-trip img {
+  object-fit: cover;
 }
 
 .card-trip-infos {
