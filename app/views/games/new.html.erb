@@ -1,34 +1,36 @@
 
-<div class= "container">
-  <%= simple_form_for @game do |f| %>
-    <div class="row d-flex justify-content-evenly new-dashboard">
-      <div class="col-sm-2" id="difficulty">
-        <%= f.input :difficulty,
-          as: :radio_buttons,
-          input_html: { class: "difficulty-selector" },
-          item_wrapper_class: 'difficulty-item',
-          collection: { 'I am a begginer' => 1, 'I am smart' => 2, 'I am a genius' => 3 } %>
+<div class="content-navbar">
+  <div class="container">
+    <%= simple_form_for @game do |f| %>
+      <div class="row d-flex justify-content-evenly new-dashboard">
+        <div class="col-sm-2" id="difficulty">
+          <%= f.input :difficulty,
+            as: :radio_buttons,
+            input_html: { class: "difficulty-selector" },
+            item_wrapper_class: 'difficulty-item',
+            collection: { 'I am a begginer' => 1, 'I am smart' => 2, 'I am a genius' => 3 } %>
+        </div>
+        <div class="col-sm-2" id="questions">
+          <%= f.input :number_of_questions,
+            as: :radio_buttons,
+            input_html: { class: "questions-selector" },
+            item_wrapper_class: 'questions-item',
+            collection: { '3' => 3, '15' => 15, '20' => 20, '30' => 30 } %>
+        </div>
+        <div class="col-sm-2" id="topics">
+          <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
+          <%= f.button :submit, class: "start-button" %>
+        </div>
       </div>
-      <div class="col-sm-2" id="questions">
-        <%= f.input :number_of_questions,
-          as: :radio_buttons,
-          input_html: { class: "questions-selector" },
-          item_wrapper_class: 'questions-item',
-          collection: { '3' => 3, '15' => 15, '20' => 20, '30' => 30 } %>
+    <% end %>
+    <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' } do |f| %>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <%= f.input :name %>
+        <%= f.input :category %>
+        <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
       </div>
-      <div class="col-sm-2" id="topics">
-        <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
-        <%= f.button :submit, class: "start-button" %>
-      </div>
-    </div>
-  <% end %>
-  <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' } do |f| %>
-    <div class="d-flex flex-column align-items-center justify-content-center">
-      <%= f.input :name %>
-      <%= f.input :category %>
-      <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="card-grid">
