@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   def new
+    @no_navbar_container = true
     @game = Game.new
     @topics = Topic.all
     @users = User.all
