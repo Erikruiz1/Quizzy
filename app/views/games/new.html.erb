@@ -1,77 +1,44 @@
+<div class="content-navbar" data-controller="toggle">
+  <div class="container">
 
-<div class="container" data-controller="create-game-btn">
-  <%= simple_form_for @game do |f| %>
-    <div class="row d-flex justify-content-evenly new-dashboard">
+    <%= simple_form_for @game do |f| %>
+      <div class="row d-flex justify-content-evenly new-dashboard">
+        <div class="col-sm-2" id="difficulty">
+          <%= f.input :difficulty,
+            as: :radio_buttons,
+            input_html: {
+              class: "difficulty-selector",
+              data: {
+                toggle_target: "difficulty",
+                action: "change->toggle#change"
+              }
+            },
+            item_wrapper_class: 'difficulty-item',
+            collection: { 'I am a beginner' => 1, 'I am smart' => 2, 'I am a genius' => 3 } %>
+        </div>
+        <div class="col-sm-2" id="questions">
+          <%= f.input :number_of_questions,
+            as: :radio_buttons,
+            input_html: {
+              class: "questions-selector",
+              data: {
+                toggle_target: "questions",
+                action: "change->toggle#change"
+              }
+            },
+            item_wrapper_class: 'questions-item',
+            collection: { '3' => 3, '15' => 15, '20' => 20, '30' => 30 } %>
+        </div>
+        <div class="col-sm-2" id="topics">
 
-      <div class="col-sm-2" id="difficulty">
-        <%= f.input :difficulty,
-          as: :radio_buttons,
-          label: "",
-          input_html: { class: "difficulty-selector" },
-          item_wrapper_class: 'difficulty-item',
-          collection: { 'I am a begginer' => 1, 'I am smart' => 2, 'I am a genius' => 3 }
-          %>
-          input_html: {
-            class: "difficulty-selector",
-            data: {
-              create_game_btn_target: "difficulty",
-              action: "change->create-game-btn#change"
-            }
-          },
-          item_wrapper_class: 'difficulty-item',
-          collection: { 'I am a beginner' => 1, 'I am smart' => 2, 'I am a genius' => 3 } %>
-      </div>
-
-      <div class="col-sm-2" id="questions">
-        <%= f.input :number_of_questions,
-          as: :radio_buttons,
-          label: "Number of  questions",
-          input_html: { class: "questions-selector" },
-          input_html: {
-            class: "questions-selector",
-            data: {
-              create_game_btn_target: "questions",
-              action: "change->create-game-btn#change"
-            }
-          },
-          item_wrapper_class: 'questions-item',
-          collection: { '3' => 3, '5' => 5, '10' => 10, '15' => 15 } %>
-      </div>
-
-      <div class="col-sm-2" id="topics">
-        <%# <%= f.input :topics, collection: @topics, input_html: { multiple: true } %>
-        <%= f.button :submit, class: "start-button" %>
-        <%= f.input :topics, collection: @topics,
-          input_html: {
-            multiple: true,
-            data: {
-              create_game_btn_target: "topics",
-              action: "change->create-game-btn#change"
-            }
-          } %>
-        <%= f.button :submit, class: "d-none start-button", data: { create_game_btn_target: "startButton" } %>
-      </div>
-
-    </div>
-  <% end %>
-  <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' } do |f| %>
-    <div class="d-flex flex-column align-items-center justify-content-center">
-      <%= f.input :name %>
-      <%= f.input :category,
-        input_html: {
-          data: {
-            create_game_btn_target: "category",
-            action: "input->create-game-btn#change"
-          }
-        } %>
-      <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
-    </div>
-    <div class="card-grid" data-controller="toggle">
-      <% @topics.each_with_index do |topic, index| %>
-        <label class="card-trip topic-selection" id="topic-<%= index + 1%>">
-          <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
-          <img src="<%= image_url %>" />
-            <div class="card-trip-infos">
+          <%= f.button :submit, class: "start-button d-none", data: { toggle_target: "startButton" } %>
+        </div>
+      <div class="card-grid">
+        <% @topics.each_with_index do |topic, index| %>
+          <label class="card-trip topic-selection" id="topic-<%= index + 1%>">
+            <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
+            <img src="<%= image_url %>" />
+              <div class="card-trip-infos">
                 <h2><%= topic.name %></h2>
                 <p><%= topic.category %></p>
                 <%= f.input :topics,
@@ -82,12 +49,31 @@
                               name: "game[topics][]",
                               id: "game_topics_#{topic.id}" ,
                               class: "invisible topic-checkbox-card",
-                              data: { action: "change->toggle#toggle" , id: "topic-#{index + 1}"}
+                              data: { action: "change->toggle#toggle" , id: "topic-#{index + 1}",
+                                      toggle_target: "topics",
+
+                              }
                             },
                             label_html: {class: "d-none"} %>
             </div>
-        </label>
-      <% end %>
+          </label>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+    <% end %>
+    <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' } do |f| %>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <%= f.input :name %>
+        <%= f.input :category,
+          input_html: {
+            data: {
+              toggle_target: "category",
+              action: "input->create-game-btn#change"
+            }
+          } %>
+        <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
+      </div>
+    <% end %>
+
+  </div>
 </div>
