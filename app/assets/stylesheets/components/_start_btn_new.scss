@@ -1,0 +1,19 @@
+// FOR START BUTTON
+
+.start-button {
+  cursor: pointer;
+  background-color: #76C6E1;
+  color: #EFF1F1;
+  padding: 10px 20px;
+  border-radius: 28px;
+  font-size: 17px;
+  position: absolute;
+  margin-top: 9vh;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: #76C6E1;
+  color: #EFF1F1;
+  transform: scale(1.02);
+}
