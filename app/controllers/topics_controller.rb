@@ -1,11 +1,15 @@
 class TopicsController < ApplicationController
   def create
+
     @topic = Topic.new(topic_params)
     if @topic.save
-      redirect_to new_game_path
+      respond_to do |format|
+        format.html { redirect_to user_path(current_user) }
+        format.text { render(partial: "shared/topic_card", formats: :html, locals: { topic: @topic }) }
+      end
     else
-      @game = Game.new 
-      render "/games/new", status: :unprocessable_entity
+      @game = Game.new
+      render "users/show", status: :unprocessable_entity
     end
   end
 

@@ -1,30 +1,35 @@
 import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
-  static targets = ["name", "category"]
+  static targets = ["name", "category", "form"]
 
   connect() {
     console.log("Form controller connected!");
   }
 
-  submit(event) {
-    event.preventDefault(); // prevent the form from actually submitting
+  createCard(event) {
+    event.preventDefault();
+    const formData = new FormData(this.formTarget)
+    const name = document.getElementById("topic_name").value
+    const category = document.getElementById("topic_category").value
+    const token = document.querySelector("meta[name=csrf-token]").content
+    formData.append("name", name)
+    formData.append("category", category)
 
-    // Create card next to the form
-    this.createCard();
-  }
+    const url = this.formTarget.action
+    const options = {
+      method: "POST",
+      headers: {
+        "Accept": "text/plain",
+        'X-CSRF-Token': token
+      },
+      body: formData
 
-  createCard() {
-    const card = document.createElement("div");
-    card.className = "card";
-    const image_url = `https://source.unsplash.com/featured/?${this.nameTarget.value}`;
-    card.innerHTML = `
-      <div class="card-trip-infos">
-        <img src="${image_url}" />
-        <h2> ${this.nameTarget.value} </h2>
-        <p> ${this.categoryTarget.value} </p>
-      </div>
-    `;
+    }
+    fetch(url, options)
+    .then(response => response.text())
+    .then(data => {
 
-    this.element.parentNode.insertBefore(card, this.element.nextSibling);
+      this.element.insertAdjacentHTML("afterend", data);
+    })
   }
 }
