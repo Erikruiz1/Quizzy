@@ -1,0 +1,16 @@
+.avatar-dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.avatar-dashboard img {
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 130px;
+}
+.avatar-dashboard h1 {
+  color: white;
+  padding-left: 30px;
+}

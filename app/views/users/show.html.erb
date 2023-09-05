@@ -1,7 +1,10 @@
 
 <div class="container">
 
-  <h1><%= current_user.nickname.capitalize %>'s Stats</h1>
+  <div class="avatar-dashboard">
+    <%= image_tag("avatar.png") %>
+    <h1><%= current_user.nickname.capitalize %>'s Stats</h1>
+  </div>
   <div data-controller="form">
     <%= simple_form_for @topic,
       data:  {action: 'submit->form#createCard' , form_target: "form"} do |f| %>
