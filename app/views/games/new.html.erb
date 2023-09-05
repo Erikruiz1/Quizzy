@@ -1,5 +1,6 @@
 <div class="content-navbar">
   <div class="main-title">
+
     <h1>Choose Your Favourite Topic <br> and Difficulty</h1>
   </div>
 </div>
@@ -7,6 +8,7 @@
 
     <%= simple_form_for @game do |f| %>
       <div class="row new-dashboard">
+
         <div class="col-sm-5" id="difficulty">
           <%= f.input :difficulty,
             label: "   Game difficulty",
@@ -63,5 +65,4 @@
       </div>
     </div>
     <% end %>
-
   </div>
