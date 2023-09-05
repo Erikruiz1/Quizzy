@@ -5,6 +5,10 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
+        <%= f.input :nickname,
+                    required: true, 
+                    autofocus: true,
+                    input_html: { class: "custom-input", autocomplete: "nickname", placeholder: "Nickname" } %>
         <%= f.input :email,
                     required: true, 
                     autofocus: true,
