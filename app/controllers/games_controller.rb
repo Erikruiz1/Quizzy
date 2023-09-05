@@ -92,7 +92,7 @@ class GamesController < ApplicationController
       @guess = Guess.new()
       @guess.user = current_user
       @guess.question = @question
-      @guess.save
+      @guess.save(validate: false)
     end
     redirect_to game_path(@game)
   end
@@ -138,6 +138,7 @@ class GamesController < ApplicationController
 
 end
 
-QUIZ_DIFFICULTY = ["the questions should be suited for children aged 7 to 14 so please make the questions very easy to answer",
-                  "the questions should be suited for children and adults alike so please make the questions challenging to answer",
-                  "the questions should be suited for adult experts in the above topics so please make the questions very difficult to answer."]
+QUIZ_DIFFICULTY =
+["the questions should be suited for children aged 7 to 14 so please make the questions very easy to answer",
+"the questions should be suited for children and adults alike so please make the questions challenging to answer",
+"the questions should be suited for adult experts in the above topics so please make the questions very difficult to answer."]
