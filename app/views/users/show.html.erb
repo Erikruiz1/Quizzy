@@ -2,9 +2,9 @@
 <div class="container">
 
   <h1><%= current_user.nickname.capitalize %>'s Stats</h1>
-  <div>
-    <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' },
-        html: { data: { controller: 'form', action: 'submit->form#submit' } } do |f| %>
+  <div data-controller="form">
+    <%= simple_form_for @topic,
+      data:  {action: 'submit->form#createCard' , form_target: "form"} do |f| %>
       <div class="d-flex flex-column align-items-center justify-content-center">
         <%= f.input :name,
             input_html: {
