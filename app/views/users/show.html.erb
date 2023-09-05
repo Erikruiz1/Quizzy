@@ -2,6 +2,30 @@
 <div class="container">
 
   <h1><%= current_user.nickname.capitalize %>'s Stats</h1>
+  <div>
+    <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' },
+        html: { data: { controller: 'form', action: 'submit->form#submit' } } do |f| %>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <%= f.input :name,
+            input_html: {
+              data: {
+                form_target: "name"
+              }
+            }
+        %>
+        <%= f.input :category,
+            input_html: {
+              data: {
+                toggle_target: "category",
+                action: "input->create-game-btn#change",
+                form_target: "category"
+              }
+            } %>
+        <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
+      </div>
+    <% end %>
+  </div>
+
 
   <%# Display completed games %>
   <h2>Completed games</h2>

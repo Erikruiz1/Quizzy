@@ -34,7 +34,7 @@
           <%= f.button :submit, class: "start-button d-none", data: { toggle_target: "startButton" } %>
         </div>
       <div class="card-grid">
-        <% @topics.each_with_index do |topic, index| %>
+        <% @topics.order(id: :desc).each_with_index do |topic, index| %>
           <label class="card-trip topic-selection" id="topic-<%= index + 1%>">
             <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
             <img src="<%= image_url %>" />
@@ -59,19 +59,6 @@
         <% end %>
       </div>
     </div>
-    <% end %>
-    <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' } do |f| %>
-      <div class="d-flex flex-column align-items-center justify-content-center">
-        <%= f.input :name %>
-        <%= f.input :category,
-          input_html: {
-            data: {
-              toggle_target: "category",
-              action: "input->create-game-btn#change"
-            }
-          } %>
-        <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
-      </div>
     <% end %>
 
   </div>

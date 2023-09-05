@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def show
+    @topic = Topic.new
     @display_states_completed = []
     @display_states_open = []
     @correct_questions_completed = []
