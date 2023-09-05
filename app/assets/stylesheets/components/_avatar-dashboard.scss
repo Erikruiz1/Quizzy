@@ -1,0 +1,17 @@
+.avatar-dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -90px;
+}
+
+.avatar-dashboard img {
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 130px;
+}
+.avatar-dashboard h1 {
+  color: white;
+  padding-left: 30px;
+}

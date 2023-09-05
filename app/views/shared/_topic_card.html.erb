@@ -1,6 +1,8 @@
-<% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
-<div class="card-trip-infos">
+<div class="card-trip topic-selection">
+  <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
   <img src="<%= image_url %>" />
-  <h2><%= topic.name %></h2>
-  <p><%= topic.category %></p>
+  <div class="card-trip-infos">
+    <h2><%= topic.name %></h2>
+    <p><%= topic.category %></p>
+  </div>
 </div>
