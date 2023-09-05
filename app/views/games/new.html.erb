@@ -45,8 +45,8 @@
               <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
               <img src="<%= image_url %>" />
                 <div class="card-trip-infos">
-                  <h2><%= topic.name %></h2>
-                  <p><%= topic.category %></p>
+                  <h2><%= topic.category %></h2>
+                  <p><%= topic.name %></p>
                   <%= f.input :topics,
                     as: :boolean,
                     checked_value: topic.id,
