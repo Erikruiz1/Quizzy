@@ -10,8 +10,11 @@
         <div class="score">
           <p style="margin-bottom: 0px"><%= @correct_questions %>/<%= @game.number_of_questions %></p>
         </div>
-
-          <p class="p_title">It took you  <%= @guesses_per_correct_answer %> guesses per question</p>
+          <% if @correct_any == true %>
+            <p class="p_title">It took you  <%= @guesses_per_correct_answer %> guesses per question</p>
+          <% else %>
+            <p class="p_title">You have no correct answers!</p>
+          <% end %>
       </div>
     </div>
   </div>

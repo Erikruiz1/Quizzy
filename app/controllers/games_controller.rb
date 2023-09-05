@@ -72,7 +72,12 @@ class GamesController < ApplicationController
         end
       end
     end
-    @guesses_per_correct_answer = (@number_of_guesses.to_f / @correct_questions).round(1)
+    @correct_any = true
+    if @correct_questions != 0
+      @guesses_per_correct_answer = (@number_of_guesses.to_f / @correct_questions).round(1)
+    else
+      @correct_any = false
+    end
   end
 
   def add_guesses
