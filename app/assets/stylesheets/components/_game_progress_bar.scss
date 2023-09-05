@@ -1,0 +1,28 @@
+.progress-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2px;
+  margin: 0 7vw 1em;
+  height: 1em;
+}
+
+.box {
+  flex-grow: 1;
+  min-width: 50px;
+  height: 1em;
+  background-color: white;
+  border-radius: 24px;
+}
+
+.answered-true {
+  background-color: #80B918;
+}
+
+.answered-false {
+  background-color: #FF3333;
+}
+
+.answered-empty {
+  background-color:  #AAABB8;
+}

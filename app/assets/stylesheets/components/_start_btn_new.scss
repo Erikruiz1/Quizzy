@@ -1,0 +1,22 @@
+// FOR START BUTTON
+
+.start-button {
+  cursor: pointer;
+  background-color: #76C6E1;
+  color: #EFF1F1;
+  padding:14px;
+  border-radius: 28px;
+  font-size: 17px;
+  position: absolute;
+  margin-top: 5vh;
+  margin-left: 100vh;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border: 3px solid #373870;
+}
+
+.btn:hover {
+  background-color: #76C6E1;
+  color: #EFF1F1;
+  transform: scale(1.02);
+  border: 3px solid #373870;
+}
