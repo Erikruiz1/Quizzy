@@ -1,8 +1,18 @@
+<div class="card_container">
+  <div class="title_summary">
+    <h1>Congratulations!</h1>
 
-<div class="container">
+    <div class="summary_card">
+      <%= image_tag "avatar.png", class: "avatar-card" %>
+      <div class="content">
+          <p class="p_title">Your Result</p>
 
-  <p>The game had <%= @game.number_of_questions %> questions.</p>
-  <p>You answered <%= @correct_questions %> questions correctly and took
-  <%= @guesses_per_correct_answer %> guesses per question to answer it correctly.</p>
+        <div class="score">
+          <p style="margin-bottom: 0px"><%= @correct_questions %>/<%= @game.number_of_questions %></p>
+        </div>
 
+          <p class="p_title">It took you  <%= @guesses_per_correct_answer %> guesses per question</p>
+      </div>
+    </div>
+  </div>
 </div>
