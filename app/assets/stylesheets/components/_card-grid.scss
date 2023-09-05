@@ -2,13 +2,21 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: -12vh 0 14vh;
+  margin: 0vh 0 14vh;
   justify-items: center;
-  margin-left: 16vh;
-  margin-right: 16vh;
+  margin-left: 24vh;
+  margin-right: 24vh;
+  background-color: #F2F0F5;
+  border-radius: 28px;
+}
+
+.under-grid {
+  margin: -12vh 0 14vh;
+  margin-left: -11vh;
+  margin-right: -11vh;
   background-color: #F2F0F5;
   border: 1px solid #ccc;
-  border-radius: 28px;
+  border-radius: 50px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 

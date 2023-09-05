@@ -11,7 +11,7 @@
 
         <div class="col-sm-5" id="difficulty">
           <%= f.input :difficulty,
-            label: "   Game difficulty",
+            label: "Game difficuty",
             as: :radio_buttons,
             input_html: {
               class: "difficulty-selector",
@@ -38,30 +38,32 @@
         </div>
         <%= f.button :submit, class: "col-sm-2 start-button d-none", data: { toggle_target: "startButton" } %>
         </div>
-      <div class="card-grid">
-        <% @topics.each_with_index do |topic, index| %>
-          <label class="card-trip topic-selection" id="topic-<%= index + 1%>">
-            <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
-            <img src="<%= image_url %>" />
-              <div class="card-trip-infos">
-                <h2><%= topic.name %></h2>
-                <p><%= topic.category %></p>
-                <%= f.input :topics,
-                  as: :boolean,
-                  checked_value: topic.id,
-                  unchecked_value: nil,
-                  input_html: {
-                    name: "game[topics][]",
-                    id: "game_topics_#{topic.id}" ,
-                    class: "invisible topic-checkbox-card",
-                    data: { action: "change->toggle#toggle" , id: "topic-#{index + 1}",
-                    toggle_target: "topics",
-                    }
-                  },
-                  label_html: {class: "d-none"} %>
-            </div>
-          </label>
-        <% end %>
+      <div class="under-grid">
+        <div class="card-grid">
+          <% @topics.each_with_index do |topic, index| %>
+            <label class="card-trip topic-selection" id="topic-<%= index + 1%>">
+              <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
+              <img src="<%= image_url %>" />
+                <div class="card-trip-infos">
+                  <h2><%= topic.name %></h2>
+                  <p><%= topic.category %></p>
+                  <%= f.input :topics,
+                    as: :boolean,
+                    checked_value: topic.id,
+                    unchecked_value: nil,
+                    input_html: {
+                      name: "game[topics][]",
+                      id: "game_topics_#{topic.id}" ,
+                      class: "invisible topic-checkbox-card",
+                      data: { action: "change->toggle#toggle" , id: "topic-#{index + 1}",
+                      toggle_target: "topics",
+                      }
+                    },
+                    label_html: {class: "d-none"} %>
+              </div>
+            </label>
+          <% end %>
+        </div>
       </div>
     </div>
     <% end %>
