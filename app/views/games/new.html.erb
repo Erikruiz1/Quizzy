@@ -30,66 +30,8 @@
       </div>
     <% end %>
   </div>
-<div class="container" data-controller="create-game-btn">
-  <%= simple_form_for @game do |f| %>
-    <div class="row d-flex justify-content-evenly new-dashboard">
-
-      <div class="col-sm-2" id="difficulty">
-        <%= f.input :difficulty,
-          as: :radio_buttons,
-          input_html: {
-            class: "difficulty-selector",
-            data: {
-              create_game_btn_target: "difficulty",
-              action: "change->create-game-btn#change"
-            }
-          },
-          item_wrapper_class: 'difficulty-item',
-          collection: { 'I am a beginner' => 1, 'I am smart' => 2, 'I am a genius' => 3 } %>
-      </div>
-
-      <div class="col-sm-2" id="questions">
-        <%= f.input :number_of_questions,
-          as: :radio_buttons,
-          input_html: {
-            class: "questions-selector",
-            data: {
-              create_game_btn_target: "questions",
-              action: "change->create-game-btn#change"
-            }
-          },
-          item_wrapper_class: 'questions-item',
-          collection: { '3' => 3, '5' => 5, '10' => 10, '15' => 15 } %>
-      </div>
-
-      <div class="col-sm-2" id="topics">
-        <%= f.input :topics, collection: @topics,
-          input_html: {
-            multiple: true,
-            data: {
-              create_game_btn_target: "topics",
-              action: "change->create-game-btn#change"
-            }
-          } %>
-        <%= f.button :submit, class: "d-none start-button", data: { create_game_btn_target: "startButton" } %>
-      </div>
-
-    </div>
-  <% end %>
-  <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' } do |f| %>
-    <div class="d-flex flex-column align-items-center justify-content-center">
-      <%= f.input :name %>
-      <%= f.input :category,
-        input_html: {
-          data: {
-            create_game_btn_target: "category",
-            action: "input->create-game-btn#change"
-          }
-        } %>
-      <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
-    </div>
-  <% end %>
 </div>
+
 <div class="card-grid">
   <% @topics.each do |topic| %>
     <div class="card-trip topic-selection">
