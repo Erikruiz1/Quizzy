@@ -1,8 +1,12 @@
-<div class="content-navbar" data-controller="toggle">
-  <div class="container">
+<div class="content-navbar">
+  <div class="main-title">
+<h1 >Choose Your Favourite Topic <br> and Difficulty</h1>
+  </div>
+</div>
+  <div class="container" data-controller="toggle">
 
     <%= simple_form_for @game do |f| %>
-      <div class="row d-flex justify-content-evenly new-dashboard">
+      <div class="row new-dashboard">
         <div class="col-sm-2" id="difficulty">
           <%= f.input :difficulty,
             as: :radio_buttons,
@@ -29,10 +33,8 @@
             item_wrapper_class: 'questions-item',
             collection: { '3' => 3, '15' => 15, '20' => 20, '30' => 30 } %>
         </div>
-        <div class="col-sm-2" id="topics">
-
-          <%= f.button :submit, class: "start-button d-none", data: { toggle_target: "startButton" } %>
-        </div>
+        <%= f.button :submit, class: "start-button d-none", data: { toggle_target: "startButton" } %>
+      </div>
       <div class="card-grid">
         <% @topics.each_with_index do |topic, index| %>
           <label class="card-trip topic-selection" id="topic-<%= index + 1%>">
@@ -42,38 +44,25 @@
                 <h2><%= topic.name %></h2>
                 <p><%= topic.category %></p>
                 <%= f.input :topics,
-                            as: :boolean,
-                            checked_value: topic.id,
-                            unchecked_value: nil,
-                            input_html: {
-                              name: "game[topics][]",
-                              id: "game_topics_#{topic.id}" ,
-                              class: "invisible topic-checkbox-card",
-                              data: { action: "change->toggle#toggle" , id: "topic-#{index + 1}",
-                                      toggle_target: "topics",
-
-                              }
-                            },
-                            label_html: {class: "d-none"} %>
+                  as: :boolean,
+                  checked_value: topic.id,
+                  unchecked_value: nil,
+                  input_html: {
+                    name: "game[topics][]",
+                    id: "game_topics_#{topic.id}" ,
+                    class: "invisible topic-checkbox-card",
+                    data: { action: "change->toggle#toggle",
+                    id: "topic-#{index + 1}",
+                    toggle_target: "topics",
+                    }
+                  },
+                  label_html: {class: "d-none"} %>
             </div>
           </label>
         <% end %>
       </div>
     </div>
     <% end %>
-    <%= simple_form_for @topic, url: { controller: 'topics', action: 'create' } do |f| %>
-      <div class="d-flex flex-column align-items-center justify-content-center">
-        <%= f.input :name %>
-        <%= f.input :category,
-          input_html: {
-            data: {
-              toggle_target: "category",
-              action: "input->create-game-btn#change"
-            }
-          } %>
-        <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
-      </div>
-    <% end %>
+
 
   </div>
-</div>
