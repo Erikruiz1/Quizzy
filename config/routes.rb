@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :guesses, only: [:create]
   resources :topics, only: [:create]
-
   resources :games, only: [:new, :create, :show] do
     member do
       get :answer
