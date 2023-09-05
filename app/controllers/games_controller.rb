@@ -9,14 +9,17 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.create(game_params)
-    topics_string = " "
-
+    topics = []
+    topics_string = ""
     params[:game][:topics].each do |topic|
       unless topic == ""
         @game_topic = GameTopic.create(game_id: @game.id, topic_id: topic) unless topic == ""
-        topics_string = topics_string + @game_topic.topic.name + ", "
+        # topics_string = topics_string + @game_topic.topic.name + ", ".strip
+        topics << @game_topic.topic.name
       end
+      topics_string = topics.join(", ")
     end
+
 
     GameParticipation.create(game_id: @game.id, user_id: current_user.id)
     service = OpenaiService.new(build_prompt(topics_string))
@@ -37,6 +40,8 @@ class GamesController < ApplicationController
     @display_states = progress_bar(@game)
     @question = find_question(@game)
     if @question.nil?
+      @game.completed = true
+      @game.save
       redirect_to summary_game_path(@game)
     end
   end
@@ -87,10 +92,9 @@ class GamesController < ApplicationController
       @guess = Guess.new()
       @guess.user = current_user
       @guess.question = @question
-      @guess.save
+      @guess.save(validate: false)
     end
     redirect_to game_path(@game)
-
   end
 
   private
@@ -134,6 +138,7 @@ class GamesController < ApplicationController
 
 end
 
-QUIZ_DIFFICULTY = ["the questions should be suited for children aged 7 to 14 so please make the questions very easy to answer",
-                  "the questions should be suited for children and adults alike so please make the questions challenging to answer",
-                  "the questions should be suited for adult experts in the above topics so please make the questions very difficult to answer."]
+QUIZ_DIFFICULTY =
+["the questions should be suited for children aged 7 to 14 so please make the questions very easy to answer",
+"the questions should be suited for children and adults alike so please make the questions challenging to answer",
+"the questions should be suited for adult experts in the above topics so please make the questions very difficult to answer."]

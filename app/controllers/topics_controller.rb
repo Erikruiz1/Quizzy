@@ -1,6 +1,5 @@
 class TopicsController < ApplicationController
   def create
-
     @topic = Topic.new(topic_params)
     if @topic.save
       respond_to do |format|
@@ -9,6 +8,7 @@ class TopicsController < ApplicationController
       end
     else
       @game = Game.new
+      @user = current_user
       render "users/show", status: :unprocessable_entity
     end
   end
