@@ -1,0 +1,69 @@
+.card_container {
+  display: flex;
+  align-items: center;
+	justify-content: center;
+}
+
+.title_summary h1 {
+  font-family: "Dela Gothic One";
+  font-size: 50px;
+  color: white;
+  margin-bottom: 87px;
+
+}
+
+.avatar-card {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 175px;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid white;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 86px;
+}
+
+.summary_card {
+  background: transparent;
+  border: 3px solid white;
+  border-radius: 40px;
+  height: auto;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  padding: 30px;
+}
+
+.p_title {
+  font-family: "Dela Gothic One";
+  font-weight: 200;
+  font-size: 30px;
+  padding: 20px 0px 0px 0px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.score {
+  padding: 17px 96px;
+  margin: 10px 100px;
+  display: inline-block;
+  font-family: "Dela Gothic One";
+  background-color: #fff;
+  color: blueviolet;
+  font-size: 36px;
+  text-align: center;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+}
