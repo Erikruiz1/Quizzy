@@ -14,7 +14,11 @@
   background-color: #F2F0F5;
   height: 20vh;
   border-radius: 2rem;
-  margin: 0 4vw;
+  margin: 0 5vw;
   font-family: $p-font;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  top: -24vh;
 }

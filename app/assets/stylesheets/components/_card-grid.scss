@@ -2,7 +2,7 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 6vh 13vh;
+  margin: -16vh 0 14vh;
   justify-items: center;
   margin-left: 18vh;
   margin-right: 18vh;
@@ -19,7 +19,7 @@
     margin-left: 5vh;
     margin-right: 5vh;
   }
-} 
+}
 
 .card-trip {
   margin-top: 3vh;
