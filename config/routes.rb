@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       get :answer
       get :summary
+      get :add_guesses
     end
   end
 

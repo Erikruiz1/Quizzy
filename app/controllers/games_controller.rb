@@ -35,16 +35,8 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @guess = Guess.new
     @display_states = progress_bar(@game)
-    @question = @game.questions.find do |q|
-      count = 0
-      q.guesses.all? do |guess|
-        count += 1
-        !guess.correct && count < 3
-      end
-    end
+    @question = find_question(@game)
     if @question.nil?
-      @game.completed = true
-      @game.save
       redirect_to summary_game_path(@game)
     end
   end
@@ -58,13 +50,7 @@ class GamesController < ApplicationController
     @hint = current_user.hints.last
     @display_states = progress_bar(@game)
 
-    @next_question = @game.questions.find do |q|
-      count = 0
-      q.guesses.all? do |guess|
-        count += 1
-        !guess.correct && count < 3
-      end
-    end
+    @next_question = find_question(@game)
     if @next_question.nil?
       @game.completed = true
       @game.save
@@ -89,7 +75,30 @@ class GamesController < ApplicationController
     @guesses_per_correct_answer = (@number_of_guesses.to_f / @correct_questions).round(1)
   end
 
+  def add_guesses
+    @game = Game.find(params[:id])
+    @question = find_question(@game)
+    (3 - @question.guesses.size).times do
+      @guess = Guess.new()
+      @guess.user = current_user
+      @guess.question = @question
+      @guess.save
+    end
+    redirect_to game_path(@game)
+
+  end
+
   private
+
+  def find_question(game)
+    game.questions.find do |q|
+      count = 0
+      q.guesses.all? do |guess|
+        count += 1
+        !guess.correct && count < 3
+      end
+    end
+  end
 
   def build_prompt(topics_string)
     "Generate a JSON with #{@game.number_of_questions}

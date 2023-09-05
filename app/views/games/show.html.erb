@@ -29,6 +29,12 @@
         <button type="submit" id="guess-submit-button" name="commit" value="Guess">
           <i class="fa-solid fa-play" style="color: #ffffff;"></i>
         </button>
+
+        <%= link_to add_guesses_game_path, class: 'btn btn-primary' do %>
+          <i class="fa-solid fa-play" style="color: #ffffff;"></i> Skip-question
+        <% end %>
+
+
       </div>
     <% end %>
 
