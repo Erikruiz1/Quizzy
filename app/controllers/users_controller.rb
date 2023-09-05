@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @display_states_open = []
     @correct_questions_completed = []
     @correct_questions_open = []
+    @topics_completed = []
+    @topics_open = []
 
     @games = current_user.games
     @completed_games = @games.order(:id).select do |game|
@@ -16,14 +18,27 @@ class UsersController < ApplicationController
     end
 
     @completed_games.each do |g|
+      topic = []
+      g.topics.each do |t|
+        topic.push(t)
+      end
+      @topics_completed.push(topic)
       @display_states_completed.push(progress_bar(g))
       @correct_questions_completed.push(summary(g))
     end
     @open_games.each do |g|
+      topic = []
+      g.topics.each do |t|
+        topic.push(t)
+      end
+      @topics_open.push(topic)
       @display_states_open.push(progress_bar(g))
       @correct_questions_open.push(summary(g))
     end
   end
+
+
+  private
 
   def summary(game)
     questions = game.questions
@@ -37,8 +52,6 @@ class UsersController < ApplicationController
     end
     correct_questions
   end
-
-  private
 
   def progress_bar(game)
     display_states = []
