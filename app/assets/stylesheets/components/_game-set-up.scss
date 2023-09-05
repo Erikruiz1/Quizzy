@@ -1,8 +1,7 @@
 // CONTAINERS
 
 #difficulty {
-  margin-top: 3.7vh;
-  height: 150px;
+  margin-top: 3.2vh;
 }
 
 #questions {
@@ -12,7 +11,7 @@
 
 .new-dashboard {
   background-color: #F2F0F5;
-  height: 20vh;
+  height: 15vh;
   border-radius: 2rem;
   margin: 0 5vw;
   font-family: $p-font;
@@ -20,5 +19,5 @@
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  top: -24vh;
+  top: -18vh;
 }
