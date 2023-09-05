@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   def show
     @display_states_completed = []
     @display_states_open = []
+    @correct_questions_completed = []
+    @correct_questions_open = []
 
     @games = current_user.games
     @completed_games = @games.order(:id).select do |game|
@@ -14,10 +16,25 @@ class UsersController < ApplicationController
 
     @completed_games.each do |g|
       @display_states_completed.push(progress_bar(g))
+      @correct_questions_completed.push(summary(g))
     end
     @open_games.each do |g|
       @display_states_open.push(progress_bar(g))
+      @correct_questions_open.push(summary(g))
     end
+  end
+
+  def summary(game)
+    questions = game.questions
+    correct_questions = 0
+    questions.each do |question|
+      question.guesses.each do |guess|
+        if guess.correct == true
+          correct_questions += 1
+        end
+      end
+    end
+    correct_questions
   end
 
   private

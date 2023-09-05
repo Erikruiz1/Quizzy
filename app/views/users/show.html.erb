@@ -1,9 +1,17 @@
 
 <div class="container">
+
   <h1><%= current_user.nickname.capitalize %>'s Stats</h1>
+
   <%# Display completed games %>
   <h2>Completed games</h2>
+
+  <% count = 0 %>
   <% @display_states_completed.each do |display_states| %>
+    <p>You answered <%= @correct_questions_completed[count] %>
+    / <%= @completed_games[count].number_of_questions %> correctly.</p>
+
+    <% count += 1 %>
     <div class="progress-bar">
       <% display_states.each do |d| %>
         <% if d == "correct" %>
@@ -14,11 +22,16 @@
           <div class="box answered-empty"></div>
         <% end %>
       <% end %>
-  </div>
+    </div>
   <% end %>
+
   <%# Display open games %>
   <h2>Open games</h2>
+  <% count = 0 %>
   <% @display_states_open.each do |display_states| %>
+  <p>You answered <%= @correct_questions_open[count] %>
+  / <%= @open_games[count].number_of_questions %> correctly.</p>
+
     <div class="progress-bar">
       <% display_states.each do |d| %>
         <% if d == "correct" %>
@@ -29,7 +42,9 @@
           <div class="box answered-empty"></div>
         <% end %>
       <% end %>
-  </div>
+      <%= link_to "Resume", game_path(@open_games[count]) %>
+      <% count += 1 %>
+    </div>
   <% end %>
 
 </div>
