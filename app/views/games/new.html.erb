@@ -44,18 +44,18 @@
                 <h2><%= topic.name %></h2>
                 <p><%= topic.category %></p>
                 <%= f.input :topics,
-                            as: :boolean,
-                            checked_value: topic.id,
-                            unchecked_value: nil,
-                            input_html: {
-                              name: "game[topics][]",
-                              id: "game_topics_#{topic.id}" ,
-                              class: "invisible topic-checkbox-card",
-                              data: { action: "change->toggle#toggle" , id: "topic-#{index + 1}",
-                                      toggle_target: "topics",
-                              }
-                            },
-                            label_html: {class: "d-none"} %>
+                  as: :boolean,
+                  checked_value: topic.id,
+                  unchecked_value: nil,
+                  input_html: {
+                    name: "game[topics][]",
+                    id: "game_topics_#{topic.id}" ,
+                    class: "invisible topic-checkbox-card",
+                    data: { action: "change->toggle#toggle" , id: "topic-#{index + 1}",
+                    toggle_target: "topics",
+                    }
+                  },
+                  label_html: {class: "d-none"} %>
             </div>
           </label>
         <% end %>
