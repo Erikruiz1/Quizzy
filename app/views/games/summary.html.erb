@@ -6,11 +6,13 @@
       <%= image_tag "avatar.png", class: "avatar-card" %>
       <div class="content">
           <p class="p_title">Your Result</p>
+
         <div class="score">
           <p style="margin-bottom: 0px"><%= @correct_questions %>/<%= @game.number_of_questions %></p>
         </div>
+
           <p class="p_title">It took you  <%= @guesses_per_correct_answer %> guesses per question</p>
-        </div>
+      </div>
     </div>
   </div>
 </div>
