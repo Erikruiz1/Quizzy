@@ -43,6 +43,8 @@ class GamesController < ApplicationController
       end
     end
     if @question.nil?
+      @game.completed = true
+      @game.save
       redirect_to summary_game_path(@game)
     end
   end
@@ -55,6 +57,18 @@ class GamesController < ApplicationController
     @count = @question.guesses.all.size
     @hint = current_user.hints.last
     @display_states = progress_bar(@game)
+
+    @next_question = @game.questions.find do |q|
+      count = 0
+      q.guesses.all? do |guess|
+        count += 1
+        !guess.correct && count < 3
+      end
+    end
+    if @next_question.nil?
+      @game.completed = true
+      @game.save
+    end
   end
 
   def summary
