@@ -7,14 +7,15 @@
 
 .form-box {
     background: transparent;
-    padding: 40px;
+    padding-inline: 40px;
+    padding-block: 20px;
     width: 400px;
     max-width: 80%;
     border-radius: 10px;
     border-radius: 40px;
     border: 3px solid #EFF1F1;
     margin-top: 0px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .form-box a {
@@ -30,6 +31,7 @@
     text-align: left;
     font-size: 14px;
     font-weight: 400;
+    font-family: $body-font;
 }
 
 .form-box .btn-primary {
@@ -51,7 +53,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: 400;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .form-box .custom-input {
