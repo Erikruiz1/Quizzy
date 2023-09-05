@@ -16,10 +16,10 @@ Topic.destroy_all
 
 # Seed Users
 users_data = [
-  { first_name: "Marta", last_name: "Doe", nickname: "marta", email: "marta.doe@example.com", password: "123456", age: 14 },
-  { first_name: "Paula", last_name: "Doe", nickname: "paula", email: "paula.doe@example.com", password: "123456", age: 18 },
-  { first_name: "Karl", last_name: "Doe", nickname: "karl", email: "karl.doe@example.com", password: "123456", age: 24 },
-  { first_name: "Steven", last_name: "Doe", nickname: "steven", email: "steven.doe@example.com", password: "123456", age: 40 }
+  { first_name: "Marta", last_name: "Doe", username: "marta", email: "marta.doe@example.com", password: "123456", age: 14 },
+  { first_name: "Paula", last_name: "Doe", username: "paula", email: "paula.doe@example.com", password: "123456", age: 18 },
+  { first_name: "Karl", last_name: "Doe", username: "karl", email: "karl.doe@example.com", password: "123456", age: 24 },
+  { first_name: "Steven", last_name: "Doe", username: "steven", email: "steven.doe@example.com", password: "123456", age: 40 }
 ]
 
 users_data.each do |user_data|
