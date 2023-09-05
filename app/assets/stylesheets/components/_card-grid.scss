@@ -2,10 +2,10 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 6vh 13vh;
+  margin: -12vh 0 14vh;
   justify-items: center;
-  margin-left: 18vh;
-  margin-right: 18vh;
+  margin-left: 16vh;
+  margin-right: 16vh;
   background-color: #F2F0F5;
   border: 1px solid #ccc;
   border-radius: 28px;
@@ -19,10 +19,11 @@
     margin-left: 5vh;
     margin-right: 5vh;
   }
-} 
+}
 
 .card-trip {
   margin-top: 3vh;
+  margin-bottom: 3vh;
 }
 
 .card-trip img {
