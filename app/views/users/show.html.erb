@@ -36,35 +36,41 @@
 
 
   <%# Display completed games %>
-  <h2>Completed games</h2>
+  <div class="title-dashboard">
+    <h2>Completed games</h2>
+  </div>
 
   <% count = 0 %>
   <% @display_states_completed.each do |display_states| %>
-    <p>
-      Your topics were:
-      <% @topics_completed[count].each do |topic|%>
-        <%= topic.name %> ,
-      <% end %>
-      you answered <%= @correct_questions_completed[count] %>
-      / <%= @completed_games[count].number_of_questions %> questions correctly.
-    </p>
-
-    <% count += 1 %>
-    <div class="progress-bar">
-      <% display_states.each do |d| %>
-        <% if d == "correct" %>
-          <div class="box answered-true"></div>
-        <% elsif d == "incorrect"%>
-          <div class="box answered-false"></div>
-        <% else %>
-          <div class="box answered-empty"></div>
+    <div class="result-container">
+      <p>
+        <% @topics_completed[count].each do |topic|%>
+          <%= topic.name %> <br>
         <% end %>
-      <% end %>
+        You answered <%= @correct_questions_completed[count] %>
+        / <%= @completed_games[count].number_of_questions %> questions correctly!
+      </p>
+
+      <% count += 1 %>
+      <div class="progress-bar">
+        <% display_states.each do |d| %>
+          <% if d == "correct" %>
+            <div class="box answered-true"></div>
+          <% elsif d == "incorrect"%>
+            <div class="box answered-false"></div>
+          <% else %>
+            <div class="box answered-empty"></div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
   <%# Display open games %>
-  <h2>Open games</h2>
+  <div class="title-dashboard">
+    <h2>Open games</h2>
+  </div>
+
   <% count = 0 %>
   <% @display_states_open.each do |display_states| %>
     <p>
