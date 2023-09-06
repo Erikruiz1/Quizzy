@@ -6,8 +6,8 @@
   </div>
 
   <section>
-    <h2 class="title-text">Create your own topic!</h2>
     <div class="create-your-topic">
+    <h2 class="title-text">Create your own topic!</h2>
         <div data-controller="form">
           <%= simple_form_for @topic,
             data:  {action: 'submit->form#createCard', form_target: "form"} do |f| %>
@@ -44,26 +44,30 @@
   <% count = 0 %>
   <% @display_states_completed.each do |display_states| %>
     <div class="result-container">
-      <p>
-        <% @topics_completed[count].each do |topic|%>
-          <%= topic.name %> <br>
-        <% end %>
-        You answered <%= @correct_questions_completed[count] %>
-        / <%= @completed_games[count].number_of_questions %> questions correctly!
-      </p>
-
-      <% count += 1 %>
-      <div class="progress-bar">
-        <% display_states.each do |d| %>
-          <% if d == "correct" %>
-            <div class="box answered-true"></div>
-          <% elsif d == "incorrect"%>
-            <div class="box answered-false"></div>
-          <% else %>
-            <div class="box answered-empty"></div>
+      <span class="topic-and-count">
+        <span class="topic-name">
+          <% @topics_completed[count].each do |topic|%>
+            <%= topic.name %>
           <% end %>
-        <% end %>
-      </div>
+        </span>
+        <span class="answered-count">
+        <%= @correct_questions_completed[count] %>
+        / <%= @completed_games[count].number_of_questions %> questions correctly!
+        </span>
+      </span>
+
+        <% count += 1 %>
+        <div class="progress-bar dashboard-progress-bar">
+          <% display_states.each do |d| %>
+            <% if d == "correct" %>
+              <div class="box answered-true"></div>
+            <% elsif d == "incorrect"%>
+              <div class="box answered-false"></div>
+            <% else %>
+              <div class="box answered-empty"></div>
+            <% end %>
+          <% end %>
+        </div>
     </div>
   <% end %>
 
@@ -74,27 +78,29 @@
 
   <% count = 0 %>
   <% @display_states_open.each do |display_states| %>
-    <p>
-      Your topics are:
-      <% @topics_open[count].each do |topic|%>
-        <%= topic.name %> ,
-      <% end %>
-      you answered <%= @correct_questions_open[count] %>
-      / <%= @open_games[count].number_of_questions %> questions correctly.
-    </p>
-
-    <div class="progress-bar">
-      <% display_states.each do |d| %>
-        <% if d == "correct" %>
-          <div class="box answered-true"></div>
-        <% elsif d == "incorrect"%>
-          <div class="box answered-false"></div>
-        <% else %>
-          <div class="box answered-empty"></div>
+    <div class="result-container">
+      <p>
+        Your topics are:
+        <% @topics_open[count].each do |topic|%>
+          <%= topic.name %> ,
         <% end %>
-      <% end %>
-      <%= link_to "Resume", game_path(@open_games[count]) %>
-      <% count += 1 %>
+        you answered <%= @correct_questions_open[count] %>
+        / <%= @open_games[count].number_of_questions %> questions correctly.
+      </p>
+
+      <div class="progress-bar dashboard-progress-bar">
+        <% display_states.each do |d| %>
+          <% if d == "correct" %>
+            <div class="box answered-true"></div>
+          <% elsif d == "incorrect"%>
+            <div class="box answered-false"></div>
+          <% else %>
+            <div class="box answered-empty"></div>
+          <% end %>
+        <% end %>
+        <%= link_to "Resume", game_path(@open_games[count]) %>
+        <% count += 1 %>
+      </div>
     </div>
   <% end %>
 
