@@ -28,8 +28,8 @@ export default class extends Controller {
     fetch(url, options)
     .then(response => response.text())
     .then(data => {
-
-      this.element.insertAdjacentHTML("afterend", data);
+      const createCardContainer = document.getElementById("create-card-container");
+      createCardContainer.insertAdjacentHTML("beforeend", data);
     })
   }
 }
