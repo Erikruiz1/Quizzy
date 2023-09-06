@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["difficulty", "questions", "topics", "category", "startButton", "spinner"];
+  static targets = ["difficulty", "questions", "topics", "category", "startButton"];
 
   checkboxSelected = false;
 
