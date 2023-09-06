@@ -1,21 +1,17 @@
-  <div class="content-navbar" >
-    <div class="main-title">
-
-
-
-      <h1>Choose Your Favourite Topic <br> and Difficulty</h1>
-
-    </div>
+<div class="content-navbar" >
+  <div class="main-title">
+    <h1>Choose Your Favourite Topic <br> and Difficulty</h1>
   </div>
+</div>
 
-  <div class="container" data-controller="toggle">
+<div class="container" data-controller="toggle">
 
-    <div data-controller="loading">
-      <div class="d-flex justify-content-center d-none" data-loading-target="spinner">
-          <div class="spinner-border text-light loading" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
+  <div data-controller="loading">
+    <div class="d-flex justify-content-center d-none" data-loading-target="spinner">
+        <div class="spinner-border text-light loading" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
+      </div>
 
       <%= simple_form_for @game do |f| %>
         <div class="row new-dashboard">
@@ -47,7 +43,7 @@
               item_wrapper_class: 'questions-item',
               collection: { '3' => 3, '5' => 5, '10' => 10, '15' => 15 } %>
           </div>
-            <%= f.button :submit, class: "col-sm-2 start-button d-none",
+            <%= f.button :submit, "Play", class: "col-sm-2 start-button d-none",
             data: {  action: "click->loading#toggle", toggle_target: "startButton" } %>
           </div>
         <div class="under-grid">
@@ -77,7 +73,8 @@
             <% end %>
           </div>
         </div>
-      </div>
       <% end %>
     </div>
+
   </div>
+</div>
