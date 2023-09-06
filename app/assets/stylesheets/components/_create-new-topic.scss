@@ -1,7 +1,7 @@
 .create-your-topic {
-  background-color: #F2F0F5;
+  background-color: rgba(244, 244, 244, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   margin: 0px 341px;
 }
 
@@ -9,13 +9,25 @@
   font-size: 22px;
   margin-bottom: 20px;
   margin-top: -63px;
-  margin-left: 294px;
+  margin-left: 344px;
   color: white;
 }
 
 .input-new-topic {
   display: flex;
   flex-flow: row;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 24px;
   gap: 20px;
+  align-items: center;
+}
+
+.form-control {
+  border-radius: 30px;
+  background-color: rgba(244, 244, 244, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+  background-color: rgba(244, 244, 244, 0.3);
 }

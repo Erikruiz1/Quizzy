@@ -26,12 +26,13 @@
                       form_target: "category"
                     }
                   } %>
-              <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
+              <%= f.button :submit, "Create topic", id: "topic-submit-button", class: "create-btn-dashboard" %>
             </div>
           <% end %>
         </div>
     </div>
   </div>
+  <div id="create-card-container" class="new-cards"></div>
 
 
   <%# Display completed games %>
