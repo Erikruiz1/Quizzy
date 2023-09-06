@@ -20,7 +20,6 @@ class GamesController < ApplicationController
       topics_string = topics.join(", ")
     end
 
-
     GameParticipation.create(game_id: @game.id, user_id: current_user.id)
     service = OpenaiService.new(build_prompt(topics_string))
     @response = service.call
@@ -39,12 +38,18 @@ class GamesController < ApplicationController
     @guess = Guess.new
     @display_states = progress_bar(@game)
     @question = find_question(@game)
-    if @question.nil?
-      @game.completed = true
-      @game.save
-      redirect_to summary_game_path(@game)
-
-    end
+    @guesses_left = 0
+      if @question.nil?
+        @game.completed = true
+        @game.save
+        redirect_to summary_game_path(@game)
+      else
+        unless @question.guesses.empty?
+          @guesses_left = 3 - @question.guesses.size
+        else
+          @guesses_left = 3
+        end
+      end
   end
 
   def answer
@@ -55,7 +60,12 @@ class GamesController < ApplicationController
     @count = @question.guesses.all.size
     @hint = current_user.hints.last
     @display_states = progress_bar(@game)
-
+    @guesses_left = 0
+    unless @question.guesses.empty?
+      @guesses_left = 3 - @question.guesses.size
+    else
+      @guesses_left = 3
+    end
     @next_question = find_question(@game)
     if @next_question.nil?
       @game.completed = true
@@ -97,6 +107,8 @@ class GamesController < ApplicationController
     end
     redirect_to game_path(@game)
   end
+
+
 
   private
 
