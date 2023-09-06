@@ -2,7 +2,7 @@
   <div class="title_summary">
     <h1>Congratulations!</h1>
 
-    <div class="summary_card">
+    <section class="summary_card">
       <%= image_tag "avatar.png", class: "avatar-card" %>
       <div class="content">
           <p class="p_title">Your Result</p>
@@ -16,6 +16,23 @@
             <p class="p_title">You have no correct answers!</p>
           <% end %>
       </div>
-    </div>
+      <%= link_to new_game_path, class: "btn-new-summary" do %>
+          <p>Play again</p>
+        <% end %>
+      <div class="">
+        <% @questions.each do |question| %>
+          <p><%= question.content %></p>
+          <p>Answer: <%= question.answer %> /
+          <% if question.guesses.last.content.nil? %>
+          <span class="answer-false">You skipped the question</span>
+          <% elsif question.guesses.last.correct %>
+            Your answer: <span id="answer-true"><%= question.guesses.last.content %></p></span>
+          <% else %>
+            Your answer: <span class="answer-false"><%= question.guesses.last.content %></p></span>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+
   </div>
 </div>

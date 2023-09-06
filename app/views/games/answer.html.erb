@@ -1,17 +1,21 @@
 
 <div class="container">
 
-    <div class="progress-bar">
-      <% @display_states.each do |d| %>
-        <% if d == "correct" %>
-          <div class="box answered-true"></div>
-        <% elsif d == "incorrect"%>
-          <div class="box answered-false"></div>
-        <% else %>
-          <div class="box answered-empty"></div>
-        <% end %>
+  <div>
+    <p>You have <%= @guesses_left %> guesses left</p>
+  </div>
+
+  <div class="progress-bar">
+    <% @display_states.each do |d| %>
+      <% if d == "correct" %>
+        <div class="box answered-true"></div>
+      <% elsif d == "incorrect"%>
+        <div class="box answered-false"></div>
+      <% else %>
+        <div class="box answered-empty"></div>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 
   <div class="answer-page-card p-2">
 
@@ -33,8 +37,8 @@
         <p>Your answer is&nbsp;<span id="green-correct">correct</span>&nbsp;!</p>
         <p class="info-p-tags"><%= @question.elaborate %></p>
       <% elsif @count > 2 %>
-        <p class="info-p-tags">Your 3 guesses were incorrect. <%= @question.answer %>
-        Go to next question.</p>
+        <p class="info-p-tags">Your 3 guesses were incorrect.
+          <%= @question.answer %> is the correct answer. Go to next question.</p>
       <% else %>
         <p class="info-p-tags"><span id="hint-word">Hint:</span>&nbsp;<%= @hint.content %></p>
       <% end %>

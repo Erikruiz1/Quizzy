@@ -8,6 +8,7 @@ class GamesController < ApplicationController
   end
 
   def create
+    @no_footer = true
     @game = Game.create(game_params)
     topics = []
     topics_string = ""
@@ -20,34 +21,47 @@ class GamesController < ApplicationController
       topics_string = topics.join(", ")
     end
 
-
     GameParticipation.create(game_id: @game.id, user_id: current_user.id)
     service = OpenaiService.new(build_prompt(topics_string))
     @response = service.call
     @data = JSON.parse(@response)
+    failed = false
     @data["questions"].each do |question|
       @question = Question.new(content:question["question"], answer: question["right_answer"])
       @question.game = @game
-      @question.save
+      unless @question.save
+        failed = true
+        @game.destroy
+        break
+      end
     end
 
+    redirect_to new_game_path, alert: "Something went wrong when creating the game!" if failed
     redirect_to game_path(@game)
   end
 
   def show
+    @no_footer = true
     @game = Game.find(params[:id])
     @guess = Guess.new
     @display_states = progress_bar(@game)
     @question = find_question(@game)
-    if @question.nil?
-      @game.completed = true
-      @game.save
-      redirect_to summary_game_path(@game)
-
-    end
+    @guesses_left = 0
+      if @question.nil?
+        @game.completed = true
+        @game.save
+        redirect_to summary_game_path(@game)
+      else
+        unless @question.guesses.empty?
+          @guesses_left = 3 - @question.guesses.size
+        else
+          @guesses_left = 3
+        end
+      end
   end
 
   def answer
+    @no_footer = true
     @game = Game.find(params[:id])
     # Improvement for multiuser
     @guess = current_user.guesses.last
@@ -55,7 +69,12 @@ class GamesController < ApplicationController
     @count = @question.guesses.all.size
     @hint = current_user.hints.last
     @display_states = progress_bar(@game)
-
+    @guesses_left = 0
+    unless @question.guesses.empty?
+      @guesses_left = 3 - @question.guesses.size
+    else
+      @guesses_left = 3
+    end
     @next_question = find_question(@game)
     if @next_question.nil?
       @game.completed = true
@@ -97,6 +116,8 @@ class GamesController < ApplicationController
     end
     redirect_to game_path(@game)
   end
+
+
 
   private
 
