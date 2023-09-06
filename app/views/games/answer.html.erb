@@ -1,17 +1,21 @@
 
 <div class="container">
 
-    <div class="progress-bar">
-      <% @display_states.each do |d| %>
-        <% if d == "correct" %>
-          <div class="box answered-true"></div>
-        <% elsif d == "incorrect"%>
-          <div class="box answered-false"></div>
-        <% else %>
-          <div class="box answered-empty"></div>
-        <% end %>
+  <div>
+    <p>You have <%= @guesses_left %> guesses left</p>
+  </div>
+
+  <div class="progress-bar">
+    <% @display_states.each do |d| %>
+      <% if d == "correct" %>
+        <div class="box answered-true"></div>
+      <% elsif d == "incorrect"%>
+        <div class="box answered-false"></div>
+      <% else %>
+        <div class="box answered-empty"></div>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 
   <div class="answer-page-card p-2">
 

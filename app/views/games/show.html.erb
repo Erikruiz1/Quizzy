@@ -1,5 +1,10 @@
 
 <div class="container">
+
+  <div>
+    <p>You have <%= @guesses_left %> guesses left</p>
+  </div>
+  
   <div class="progress-bar">
     <% @display_states.each do |d| %>
       <% if d == "correct" %>
