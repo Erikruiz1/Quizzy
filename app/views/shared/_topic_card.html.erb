@@ -1,6 +1,5 @@
 <div class="card-trip topic-selection">
-  <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
-  <img src="<%= image_url %>" />
+  <%= cl_image_tag topic.photo.key, crop: :fill %>
   <div class="card-trip-infos">
     <h2><%= topic.name %></h2>
     <p><%= topic.category %></p>
