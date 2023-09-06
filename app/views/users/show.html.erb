@@ -39,8 +39,14 @@
 
   <% count = 0 %>
   <% @display_states_completed.each do |display_states| %>
-    <p>You answered <%= @correct_questions_completed[count] %>
-    / <%= @completed_games[count].number_of_questions %> correctly.</p>
+    <p>
+      Your topics were:
+      <% @topics_completed[count].each do |topic|%>
+        <%= topic.name %> ,
+      <% end %>
+      you answered <%= @correct_questions_completed[count] %>
+      / <%= @completed_games[count].number_of_questions %> questions correctly.
+    </p>
 
     <% count += 1 %>
     <div class="progress-bar">
@@ -60,8 +66,14 @@
   <h2>Open games</h2>
   <% count = 0 %>
   <% @display_states_open.each do |display_states| %>
-  <p>You answered <%= @correct_questions_open[count] %>
-  / <%= @open_games[count].number_of_questions %> correctly.</p>
+    <p>
+      Your topics are:
+      <% @topics_open[count].each do |topic|%>
+        <%= topic.name %> ,
+      <% end %>
+      you answered <%= @correct_questions_open[count] %>
+      / <%= @open_games[count].number_of_questions %> questions correctly.
+    </p>
 
     <div class="progress-bar">
       <% display_states.each do |d| %>

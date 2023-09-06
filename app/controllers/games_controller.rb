@@ -43,6 +43,7 @@ class GamesController < ApplicationController
       @game.completed = true
       @game.save
       redirect_to summary_game_path(@game)
+
     end
   end
 
