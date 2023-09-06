@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  gap: 2px;
-  margin: 0 7vw 1em;
-  height: 1em;
+  gap: 13px;
+  margin: 0 7vw 2em;
+  height: 2em;
 }
 
 .box {
@@ -16,13 +16,13 @@
 }
 
 .answered-true {
-  background-color: #3E3B72;
+  background-color: blueviolet;
 }
 
 .answered-false {
-  background-color: #FF3333;
+  background-color: #FF0000;
 }
 
 .answered-empty {
-  background-color:  #849A8E;
+  background-color:  #CCCCCC;
 }
