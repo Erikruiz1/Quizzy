@@ -1,22 +1,59 @@
 // FOR START BUTTON
 
-.start-button {
-  cursor: pointer;
-  background-color: #76C6E1;
-  color: #EFF1F1;
-  padding:14px;
-  border-radius: 28px;
-  font-size: 17px;
-  position: absolute;
-  margin-top: 5vh;
-  margin-left: 100vh;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  border: 3px solid #373870;
+// .start-button {
+//   cursor: pointer;
+//   background-color: #76C6E1;
+//   color: #EFF1F1;
+//   padding:14px;
+//   border-radius: 28px;
+//   font-size: 17px;
+//   position: absolute;
+//   margin-top: 5vh;
+//   margin-left: 100vh;
+//   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+//   border: 3px solid #373870;
+// }
+
+// .btn:hover {
+//   background-color: #76C6E1;
+//   color: #EFF1F1;
+//   transform: scale(1.02);
+//   border: 3px solid #373870;
+// }
+
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.btn:hover {
-  background-color: #76C6E1;
-  color: #EFF1F1;
-  transform: scale(1.02);
-  border: 3px solid #373870;
+.start-button {
+  margin: 10%;
+  text-align: center;
+}
+
+.btn-hover {
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: 3px solid white;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }

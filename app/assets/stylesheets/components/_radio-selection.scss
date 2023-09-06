@@ -1,6 +1,14 @@
 // DIFFICULTY RADIO BUTTONS
 .difficulty-item {
   display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.difficulty-item, .questions-item {
+  .form-check-input {
+    width: auto !important;
+  }
 }
 
 .difficulty-selector {
@@ -64,4 +72,3 @@
   background-color: #F2F0F5;
   text-align: center;
 }
-

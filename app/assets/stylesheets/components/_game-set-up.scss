@@ -1,23 +1,24 @@
 // CONTAINERS
 
 #difficulty {
-  margin-top: 3.2vh;
+  // margin-top: 3.2vh;
+  padding-left: 50px;
 }
 
-#questions {
-  margin-top: 3vh;
-  height: 105px;
-}
+// #questions {
+//   // margin-top: 3vh;
+//   // height: 105px;
+//   margin: 100px 0px;
+// }
 
 .new-dashboard {
   background-color: #F2F0F5;
-  height: 15vh;
+  // height: 15vh;
   border-radius: 2rem;
-  margin: 0 5vw;
   font-family: $p-font;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  top: -18vh;
+  top: -20vh;
 }
