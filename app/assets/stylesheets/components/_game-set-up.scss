@@ -12,13 +12,22 @@
 // }
 
 .new-dashboard {
-  background-color: #F2F0F5;
-  // height: 15vh;
-  border-radius: 2rem;
+  background-color: transparent;
+  border-radius: 40px;
+  border: 3px solid white;
   font-family: $p-font;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.985);
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  top: -20vh;
+  top: -25vh;
+}
+
+
+.col-form-label {
+    font-size: 20px;
+    font-family: $headers-font;
+    // font-weight: 400px;
+    margin-bottom: 5px;
+    color: white;
 }

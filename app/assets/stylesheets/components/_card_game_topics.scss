@@ -1,10 +1,10 @@
 .card-trip {
   overflow: hidden;
   background: #FDFFFF;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.383);
   width: 230px;
   height: 307px;
-  border-radius: 28px;
+  border-radius: 20px;
 }
 
 .card-trip > img {
@@ -13,12 +13,12 @@
   margin-top: 19px;
   margin-left: 16px;
   margin-right: 16px;
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
 .card-trip h2 {
   font-size: 16px;
-  font-weight: bold;
+  // font-weight: bold;
   margin: 0;
 }
 
