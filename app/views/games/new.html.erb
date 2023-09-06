@@ -54,8 +54,7 @@
           <div class="card-grid">
             <% @topics.order(id: :desc).each_with_index do |topic, index| %>
               <label class="card-trip topic-selection" id="topic-<%= index + 1%>">
-                <% image_url = "https://source.unsplash.com/featured/?#{topic.name}" %>
-                <img src="<%= image_url %>" />
+                <%= cl_image_tag topic.photo.key, crop: :fill %>
                   <div class="card-trip-infos">
                     <h2><%= topic.category %></h2>
                     <p><%= topic.name %></p>
