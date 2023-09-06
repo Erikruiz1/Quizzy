@@ -1,7 +1,35 @@
 <div id="homepage-container">
   <div class="homepage-content">
-    <%# <h1 class="homepage-title">Quizzy</h1> %>
-    <p class="describtion">Test your knowledge <br/>in different topics <br/>together with your friends</p>
-    <%= link_to "Get Started", new_game_path, class: "get-started-btn" %>
+    <%= image_tag("quizzy.png", class: "homepage-image") %>
+    <p class="describtion">Test your knowledge in different topics <br/>together with your friends</p>
+
+
+      <%= link_to new_game_path do %>
+      <div class="buttons">
+        <button class="blob-btn">
+        Get Started
+          <span class="blob-btn__inner">
+            <span class="blob-btn__blobs">
+              <span class="blob-btn__blob"></span>
+              <span class="blob-btn__blob"></span>
+              <span class="blob-btn__blob"></span>
+              <span class="blob-btn__blob"></span>
+            </span>
+          </span>
+        </button>
+        <br/>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+              <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+            </filter>
+          </defs>
+        </svg>
+      </div> <!-- buttons -->
+      <% end %>
+
   </div>
 </div>
