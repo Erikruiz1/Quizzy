@@ -25,12 +25,18 @@ class GamesController < ApplicationController
     service = OpenaiService.new(build_prompt(topics_string))
     @response = service.call
     @data = JSON.parse(@response)
+    failed = false
     @data["questions"].each do |question|
       @question = Question.new(content:question["question"], answer: question["right_answer"])
       @question.game = @game
-      @question.save
+      unless @question.save
+        failed = true
+        @game.destroy
+        break
+      end
     end
 
+    redirect_to new_game_path, alert: "Something went wrong when creating the game!" if failed
     redirect_to game_path(@game)
   end
 
@@ -55,6 +61,7 @@ class GamesController < ApplicationController
   end
 
   def answer
+    @no_footer = true
     @game = Game.find(params[:id])
     # Improvement for multiuser
     @guess = current_user.guesses.last
