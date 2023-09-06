@@ -8,6 +8,7 @@ class GamesController < ApplicationController
   end
 
   def create
+    @no_footer = true
     @game = Game.create(game_params)
     topics = []
     topics_string = ""
@@ -34,6 +35,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @no_footer = true
     @game = Game.find(params[:id])
     @guess = Guess.new
     @display_states = progress_bar(@game)
