@@ -1,8 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["difficulty", "questions", "topics", "category", "startButton"];
-  checkboxSelected = false; // Initialize the property
+  static targets = ["difficulty", "questions", "topics", "category", "startButton", "spinner"];
+
+  checkboxSelected = false;
 
   get selectedDifficulty() {
     return Array.from(this.difficultyTargets).find(radio => radio.checked);
@@ -15,8 +16,8 @@ export default class extends Controller {
   toggle(event) {
     const label = document.getElementById(event.target.dataset.id);
     label.classList.toggle("topic-checkbox-card");
-    this.checkboxSelected = event.target.checked; // Update the checkboxSelected here as well
-    this.checkAllConditions(); // Check conditions whenever a toggle happens
+    this.checkboxSelected = event.target.checked;
+    this.checkAllConditions();
   }
 
   change() {
@@ -30,5 +31,6 @@ export default class extends Controller {
       this.startButtonTarget.classList.add('d-none');
     }
   }
-}
 
+
+}
