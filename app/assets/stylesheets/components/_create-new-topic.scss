@@ -1,16 +1,12 @@
 .create-your-topic {
-  background: transparent;
-  border: 3px solid white;
-  border-radius: 4rem;
-  margin: 0px 341px;
-  padding: 11px;
+  display: flex;
+  justify-content: center;
 }
 
 .title-text {
   font-size: 22px;
   margin-bottom: 20px;
   margin-top: -63px;
-  margin-left: 344px;
   color: white;
 }
 
@@ -18,9 +14,11 @@
   display: flex;
   flex-flow: row;
   justify-content: flex-start;
-  margin-left: 24px;
   gap: 20px;
   align-items: center;
+  padding: 14px 44px;
+  background: transparent;
+  border: 3px solid white;
 }
 
 .form-control {

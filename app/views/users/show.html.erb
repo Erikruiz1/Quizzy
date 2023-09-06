@@ -6,8 +6,8 @@
   </div>
 
   <section>
-    <div class="create-your-topic">
     <h2 class="title-text">Create your own topic!</h2>
+    <div class="create-your-topic">
         <div data-controller="form">
           <%= simple_form_for @topic,
             data:  {action: 'submit->form#createCard', form_target: "form"} do |f| %>
@@ -27,7 +27,7 @@
                       form_target: "category"
                     }
                   } %>
-              <%= f.button :submit, "Create topic", id: "topic-submit-button", class: "create-btn-dashboard" %>
+              <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
             </div>
           <% end %>
         </div>
