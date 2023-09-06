@@ -45,12 +45,12 @@
   <% @display_states_completed.each do |display_states| %>
     <div class="result-container">
       <span class="topic-and-count">
-        <span class="topic-name">
+        <span>
           <% @topics_completed[count].each do |topic|%>
             <%= topic.name %>
           <% end %>
         </span>
-        <span class="answered-count">
+        <span>
         <%= @correct_questions_completed[count] %>
         / <%= @completed_games[count].number_of_questions %> questions correctly!
         </span>
@@ -72,36 +72,41 @@
   <% end %>
 
   <%# Display open games %>
-  <div class="title-dashboard">
-    <h2>Open games</h2>
-  </div>
-
-  <% count = 0 %>
-  <% @display_states_open.each do |display_states| %>
-    <div class="result-container">
-      <p>
-        Your topics are:
-        <% @topics_open[count].each do |topic|%>
-          <%= topic.name %> ,
-        <% end %>
-        you answered <%= @correct_questions_open[count] %>
-        / <%= @open_games[count].number_of_questions %> questions correctly.
-      </p>
-
-      <div class="progress-bar dashboard-progress-bar">
-        <% display_states.each do |d| %>
-          <% if d == "correct" %>
-            <div class="box answered-true"></div>
-          <% elsif d == "incorrect"%>
-            <div class="box answered-false"></div>
-          <% else %>
-            <div class="box answered-empty"></div>
-          <% end %>
-        <% end %>
-        <%= link_to "Resume", game_path(@open_games[count]) %>
-        <% count += 1 %>
-      </div>
+  <section id="open-games">
+    <div class="title-dashboard">
+      <h2>Open games</h2>
     </div>
-  <% end %>
+
+    <% count = 0 %>
+    <% @display_states_open.each do |display_states| %>
+      <div class="result-container">
+        <div class="topic-and-count">
+          <span id="topic-name">
+            <% @topics_open[count].each do |topic|%>
+              <p><%= topic.name %></p>
+            <% end %>
+          </span>
+          <span>
+            <%= @correct_questions_open[count] %>
+            / <%= @open_games[count].number_of_questions %> questions correct!
+          </span>
+        </div>
+
+        <div class="progress-bar dashboard-progress-bar">
+          <% display_states.each do |d| %>
+            <% if d == "correct" %>
+              <div class="box answered-true"></div>
+            <% elsif d == "incorrect"%>
+              <div class="box answered-false"></div>
+            <% else %>
+              <div class="box answered-empty"></div>
+            <% end %>
+          <% end %>
+          <%= link_to "Try Again", game_path(@open_games[count]), class: "try-again-btn" %>
+          <% count += 1 %>
+        </div>
+      </div>
+    <% end %>
+  </section>
 
 </div>
