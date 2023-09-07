@@ -1,13 +1,16 @@
 .create-your-topic {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin: 9em 0 16px;
 }
 
 .title-text {
   font-size: 22px;
   margin-bottom: 20px;
   margin-top: -63px;
-  color: white;
+  color: #373870;
 }
 
 .input-new-topic {

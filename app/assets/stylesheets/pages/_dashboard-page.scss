@@ -1,3 +1,53 @@
 .title-dashboard h2{
+  color: #373870;
+  margin-top: 70px;
+}
+
+#open-games {
+  margin-bottom: 4em;
+}
+
+
+.try-again-btn {
+  background-color: rgba(128, 128, 128, 0.7);
+  font-family: Dela Gothic One;
+  font-size: 15px;
+  border-radius: 4em;
+  text-decoration: none;
   color: white;
+  padding: 12px 27px;
+  cursor: pointer;
+  text-align: center;
+  margin-right: 10px;
+  &:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+  }
+}
+
+.result-container {
+  background-color: transparent;
+  border-radius: 90px;
+  padding: 20px;
+  border: 3px solid white;
+  margin: 30px 0;
+}
+
+.topic-and-count {
+  font-family: Dela Gothic One;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  margin: 8px 7vw 0em;
+  justify-content: space-between;
+}
+
+#topic-name {
+  display: flex;
+  flex-direction: column;
+}
+
+#completed-name {
+  display: flex;
+  flex-direction: column;
 }

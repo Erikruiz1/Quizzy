@@ -8,15 +8,15 @@
 
   <div data-controller="loading">
     <div class="d-flex justify-content-center d-none" data-loading-target="spinner">
-        <div class="spinner-border text-light loading" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
+      <div class="spinner-border text-light loading" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
+    </div>
 
       <%= simple_form_for @game do |f| %>
-        <div class="row new-dashboard">
+        <div class="row new-dashboard mb-4">
 
-          <div class="col-sm-5" id="difficulty">
+          <div class="col-sm-5 mt-4 mb-4 " id="difficulty">
             <%= f.input :difficulty,
               label: "Game difficuty",
               as: :radio_buttons,
@@ -30,7 +30,7 @@
               item_wrapper_class: 'difficulty-item',
               collection: { 'I am a beginner' => 1, 'I am smart' => 2, 'I am a genius' => 3 } %>
           </div>
-          <div class="col-sm-5" id="questions">
+          <div class="col-sm-4 mt-4 mb-4" id="questions">
             <%= f.input :number_of_questions,
               as: :radio_buttons,
               input_html: {
@@ -43,9 +43,11 @@
               item_wrapper_class: 'questions-item',
               collection: { '3' => 3, '5' => 5, '10' => 10, '15' => 15 } %>
           </div>
-            <%= f.button :submit, "Play", class: "col-sm-2 start-button d-none",
+          <div class="col-sm-2 mt-auto mb-auto">
+            <%= f.button :submit, "Play", class: "d-none start-button btn-hover mt-4 mb-4",
             data: {  action: "click->loading#toggle", toggle_target: "startButton" } %>
           </div>
+        </div> <!-- new-dashboard -->
         <div class="under-grid">
           <div class="card-grid">
             <% @topics.order(id: :desc).each_with_index do |topic, index| %>
