@@ -45,7 +45,7 @@ topics_data = [
   { name: "Modern Technology and Innovations", category: "Science and Technology" },
   { name: "Literary Quotes", category: "Literature" },
   { name: "mythological characters", category: "Mythology" },
-  { name: "Famous Paintings", category: "Art and Culture" }
+  { name: "Famous Paintings", category: "Art and Culture" },
   { name: "Travelling", category: "Leisure" }
 ]
 
