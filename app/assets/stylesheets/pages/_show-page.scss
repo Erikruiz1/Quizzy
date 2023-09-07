@@ -7,7 +7,9 @@
   flex-direction: column;
   align-items: center;
   font-family: $headers-font;
-  margin: 0 4vw;
+  margin: 0 6vh 8vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
   background-color: #FFFFFF;
   border-radius: 50px;
   height: 50vh;
@@ -15,8 +17,10 @@
 
 #q-header {
   color: $purple;
-  font-size: 2em;
+  font-size: 22px;
   text-align: center;
+  padding: 20px;
+  line-height: 1.7em;
 }
 
 // #question-id-input {
@@ -47,14 +51,23 @@
   }
 }
 
-#guess-submit-button {
-  background-color: #7e7ca1;
-  color: white;
-  padding: 8px 24px;
+.btn-primary-skip {
+  font-size: 14px;
+  color: rgb(94, 89, 89);
+  margin: 8px 16px;
+  border: 1px solid rgb(94, 89, 89);
   border-radius: 20px;
-  font-size: 18px;
-
-  &:hover {
-    background-color: #373870;
-  }
 }
+
+// #guess-submit-button {
+//   background-color: #7e7ca1;
+//   color: white;
+//   padding: 8px 35px;
+//   margin-bottom: 20px;
+//   border-radius: 30px;
+//   font-size: 18px;
+
+//   &:hover {
+//     background-color: #373870;
+//   }
+// }

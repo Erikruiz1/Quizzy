@@ -1,3 +1,14 @@
+.container-game {
+  margin: 50px;
+}
+
+.guesses-left {
+  font-family: $headers-font;
+  color: white;
+  font-size: 20px;
+  margin: 0 7vw 1em;
+}
+
 .answer-page-card {
   position: relative;
   display: flex;
@@ -6,16 +17,20 @@
   flex-direction: column;
   align-items: center;
   font-family: $headers-font;
-  margin: 0 4vw;
+  margin: 0 6vh 8vw;
   background-color: #FFFFFF;
   border-radius: 50px;
   height: 50vh;
+
 }
+
 
 .answer-page-card h1 {
   color: $purple;
-  font-size: 2em;
+  font-size: 22px;
   text-align: center;
+  line-height: 1.7em;
+
 }
 
 .answer-page-card p {
@@ -39,16 +54,16 @@
   color: #FFD639;
 }
 
-.btn-answer-page {
-  font-family: $p-font;
-  text-decoration: none;
-  background-color: #7e7ca1;
-  color: white;
-  padding: 16px 16px;
-  border-radius: 20px;
-  font-size: 18px;
+// .btn-answer-page {
+//   font-family: $p-font;
+//   text-decoration: none;
+//   background-color: #7e7ca1;
+//   color: white;
+//   padding: 16px 16px;
+//   border-radius: 20px;
+//   font-size: 18px;
 
-  &:hover {
-    background-color: #373870;
-  }
-}
+//   &:hover {
+//     background-color: #373870;
+//   }
+// }

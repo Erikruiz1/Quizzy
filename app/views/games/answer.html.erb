@@ -1,9 +1,11 @@
 
-<div class="container">
+<div class="container-game">
 
   <div>
-    <p>You have <%= @guesses_left %> guesses left</p>
+    <p class="guesses-left">You have <span style="color: #895cd1; text-shadow: 0 0.5px 0.5px #FFFFFF; font-size:25px;"> <%= @guesses_left %> </span> guesses left</p>
   </div>
+
+
 
   <div class="progress-bar">
     <% @display_states.each do |d| %>
@@ -45,7 +47,7 @@
     </div>
 
     <div>
-      <%= link_to "Keep going", game_path(@guess.question.game), class: "btn-answer-page" %>
+      <%= button_to "Keep going", game_path(@guess.question.game), class: "btn-hover" ,method:"get"%>
     </div>
 
   </div>
