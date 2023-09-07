@@ -6,8 +6,6 @@
     <p class="guesses-left">You have <span style="color: #895cd1; text-shadow: 0 0.5px 0.5px #FFFFFF; font-size:25px;"> <%= @guesses_left%></span> <%= @guesses_plural %> left</p>
   </div>
 
-
-
   <div class="progress-bar">
     <% @display_states.each do |d| %>
       <% if d == "correct" %>
