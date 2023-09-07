@@ -49,17 +49,18 @@ class GamesController < ApplicationController
     @display_states = progress_bar(@game)
     @question = find_question(@game)
     @guesses_left = 0
-      if @question.nil?
-        @game.completed = true
-        @game.save
-        redirect_to summary_game_path(@game)
+    if @question.nil?
+      @game.completed = true
+      @game.save
+      redirect_to summary_game_path(@game)
+    else
+      unless @question.guesses.empty?
+        @guesses_left = 3 - @question.guesses.size
       else
-        unless @question.guesses.empty?
-          @guesses_left = 3 - @question.guesses.size
-        else
-          @guesses_left = 3
-        end
+        @guesses_left = 3
       end
+    end
+    @guesses_plural = @guesses_left > 1 ? "guesses" : "guess"
   end
 
   def answer
@@ -82,6 +83,7 @@ class GamesController < ApplicationController
       @game.completed = true
       @game.save
     end
+    @guesses_plural = @guesses_left > 1 ? "guesses" : "guess"
   end
 
   def summary
