@@ -27,7 +27,7 @@
                       form_target: "category"
                     }
                   } %>
-              <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
+              <%= f.button :submit, "Create topic", class: "btn-hover" %>
             </div>
           <% end %>
         </div>
@@ -44,17 +44,17 @@
   <% count = 0 %>
   <% @display_states_completed.each do |display_states| %>
     <div class="result-container">
-      <span class="topic-and-count">
-        <span>
+      <div class="topic-and-count">
+        <span id="completed-name">
           <% @topics_completed[count].each do |topic|%>
-            <%= topic.name %>
+            <p><%= topic.name %></p>
           <% end %>
         </span>
         <span>
         <%= @correct_questions_completed[count] %>
         / <%= @completed_games[count].number_of_questions %> questions correctly!
         </span>
-      </span>
+      </div>
 
         <% count += 1 %>
         <div class="progress-bar dashboard-progress-bar">
