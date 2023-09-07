@@ -18,15 +18,16 @@
 
 .card-trip h2 {
   font-size: 16px;
-  // font-weight: bold;
-  margin: 0;
+  margin-bottom: 6px;
+  font-family: $body-font;
 }
 
 .card-trip p {
-  font-size: 16px;
+  font-size: 15px;
   margin-right: 13vh;
   margin-left: 0vh;
   display: inline;
+  font-family: $headers-font;
 }
 
 .card-trip .card-trip-infos {
