@@ -19,6 +19,7 @@
 
       <div class="question-summary">
         <% @questions.each do |question| %>
+        <div class="results">
           <p id="q-font"><%= question.content %></p>
           <p class="p-font">Correct answer: <span id="answer"><%= question.answer %></span> /
             <% if question.guesses.last.content.nil? %>
@@ -28,11 +29,12 @@
           <% else %>
             Your answer: <span class="answer-false"><%= question.guesses.last.content %></p></span>
           <% end %>
+        </div>
         <% end %>
       </div>
       <div id="link-btns-summary">
-        <%= link_to "Play again", new_game_path, class: "btn-summary" %>
-        <%= link_to "Dashboard", user_path(current_user), class: "btn-summary" %>
+        <%= button_to "Play again", new_game_path, class: "btn-hover", method:"get" %>
+        <%= button_to "Dashboard", user_path(current_user), class: "btn-hover", method:"get" %>
       </div>
     </section>
 

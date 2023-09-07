@@ -5,16 +5,17 @@
     line-height: 28px;
     letter-spacing: 0.5px;
     margin: 7px 0;
+    color: $purple;
 }
 
 .p_title {
   margin: 0;
   margin: 24px 0;
+  color: $purple;
 }
 
-.p-font {
-  margin-bottom: 3em;
-}
+// .p-font {
+// }
 
 .card_container {
   display: flex;
@@ -27,6 +28,9 @@
   font-size: 50px;
   color: white;
   margin-bottom: 87px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .avatar-card {
@@ -54,7 +58,7 @@
   height: auto;
   margin-bottom: 40px;
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
   position: relative;
   padding: 30px;
 }
@@ -87,19 +91,19 @@
 
 #answer {
   color: white;
-  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.8);
+  // text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.8);
   letter-spacing: 0.6px;
 }
 
 #answer-true {
   color: #23a67c;
-  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.8);
+  // text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.8);
   letter-spacing: 0.6px;
 }
 
 .answer-false{
   color: #a1320a;
-  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.8);
+  // text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.8);
   letter-spacing: 0.6px;
 }
 
@@ -119,22 +123,10 @@
   text-align: inherit;
 }
 
-.btn-summary {
-  width: 200px;
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-  margin: 20px;
-  height: 55px;
-  text-align: center;
-  border: 3px solid white;
-  background-size: 300% 100%;
-  border-radius: 50px;
-  transition: all .4s ease-in-out;
-  background-image: linear-gradient(to right, #667eea, #895cd1, #6B8DD6, #895cd1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  margin: 8px 16px;
+.results {
+  border-radius: 25px;
+  border: 2px solid white;
+  padding: 20px;
+  margin: 15px;
+  box-shadow: 0 0px 5px rgba(217, 217, 217, 0.899);
 }
