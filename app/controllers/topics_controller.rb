@@ -1,6 +1,11 @@
+require 'open-uri'
+
 class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
+    image_url = "https://source.unsplash.com/featured/?#{@topic.name}"
+    uri = URI.open(image_url)
+    @topic.photo.attach(io: uri, filename: "image.png", content_type: "image/png")
     if @topic.save
       respond_to do |format|
         format.html { redirect_to user_path(current_user) }
