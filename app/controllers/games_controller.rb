@@ -26,10 +26,12 @@ class GamesController < ApplicationController
     @response = service.call
     @data = JSON.parse(@response)
     failed = false
-    @data["questions"].each do |question|
-      @question = Question.new(content:question["question"], answer: question["right_answer"])
-      @question.game = @game
-      unless @question.save
+    count = 0
+    @game.number_of_questions.times do
+      question = Question.new(content:@data["questions"][count]["question"], answer: @data["questions"][count]["right_answer"])
+      count += 1
+      question.game = @game
+      unless question.save
         failed = true
         @game.destroy
         break
