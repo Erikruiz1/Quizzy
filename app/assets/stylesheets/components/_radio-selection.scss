@@ -22,6 +22,7 @@
   border-radius: 50px;
   padding: 0.4rem 1rem;
   background-color: #FDFFFF;
+  border: 2px solid transparent;
   // color: #635CD1;
   color: #635CD1;
   margin-bottom: 0.4rem;
@@ -37,13 +38,14 @@
   background-color: #635CD1;
   border: 2px solid white;
   color: #EFF1F1;
-  transform: scale(1.10);
+  // transform: scale(1.10);
 }
+
 // TOPICS  EACH CARDS SELECTION
 
 .topic-checkbox-card{
-  background-color: #635CD1;
-  color: #FDFFFF;
+  background-color: #9490d1;
+  color: white;
 }
 
 
@@ -63,6 +65,7 @@
   border-radius: 50rem;
   padding: 0.4rem 2rem;
   background-color: #FDFFFF;
+  border: 2px solid transparent;
   color: #635CD1;
   margin-bottom: 0.4rem;
   margin-right: 8px;
@@ -76,7 +79,7 @@
   background-color: #635CD1;
   border: 2px solid white;
   color: #EFF1F1;
-  transform: scale(1.10);
+  // transform: scale(1.10);
 
 }
 
