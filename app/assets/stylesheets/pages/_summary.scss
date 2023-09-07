@@ -1,3 +1,21 @@
+#q-font{
+  font-family: "Dela Gothic One";
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    margin: 7px 0;
+}
+
+.p_title {
+  margin: 0;
+  margin: 24px 0;
+}
+
+.p-font {
+  margin-bottom: 3em;
+}
+
 .card_container {
   display: flex;
   align-items: center;
@@ -9,7 +27,6 @@
   font-size: 50px;
   color: white;
   margin-bottom: 87px;
-
 }
 
 .avatar-card {
@@ -68,10 +85,56 @@
   justify-content: center;
 }
 
+#answer {
+  color: white;
+  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.6px;
+}
+
 #answer-true {
-  color: green;
+  color: #23a67c;
+  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.6px;
 }
 
 .answer-false{
-  color: red;
+  color: #a1320a;
+  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.6px;
+}
+
+#link-btns-summary {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+  align-items: baseline;
+  margin: 8px 0;
+}
+
+.question-summary {
+  margin: 24px 0;
+  font-family: "Poppins", "Helvetica", "sans-serif";
+  font-size: 16px;
+  font-weight: 600;
+  text-align: inherit;
+}
+
+.btn-summary {
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin: 20px;
+  height: 55px;
+  text-align: center;
+  border: 3px solid white;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  transition: all .4s ease-in-out;
+  background-image: linear-gradient(to right, #667eea, #895cd1, #6B8DD6, #895cd1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 8px 16px;
 }

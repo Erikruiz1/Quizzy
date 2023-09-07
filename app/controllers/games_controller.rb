@@ -26,10 +26,12 @@ class GamesController < ApplicationController
     @response = service.call
     @data = JSON.parse(@response)
     failed = false
-    @data["questions"].each do |question|
-      @question = Question.new(content:question["question"], answer: question["right_answer"])
-      @question.game = @game
-      unless @question.save
+    count = 0
+    @game.number_of_questions.times do
+      question = Question.new(content:@data["questions"][count]["question"], answer: @data["questions"][count]["right_answer"])
+      count += 1
+      question.game = @game
+      unless question.save
         failed = true
         @game.destroy
         break
@@ -133,13 +135,13 @@ class GamesController < ApplicationController
 
   def build_prompt(topics_string)
     "Generate a JSON with #{@game.number_of_questions}
-      questions, they should not be multiple choice questions.
+      questions, they should not be multiple choice questions. Include a key for the \"questions\".
       The questions should require open ended answers to make it more challenging.
-      Include a key for the 'topics' #{topics_string},
+      Include a key for the \"topics\" #{topics_string},
       you can also mix different topics in a single question.
       #{QUIZ_DIFFICULTY[@game.difficulty - 1]}.
-      Include a key for the 'right_answer'.
-      Include a key for the 'hint'."
+      Include a key for the \"right_answer\".
+      Include a key for the \"hint\"."
   end
 
   def game_params

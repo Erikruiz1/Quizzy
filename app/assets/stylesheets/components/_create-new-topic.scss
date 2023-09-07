@@ -1,21 +1,35 @@
 .create-your-topic {
-  background-color: #F2F0F5;
-  border-radius: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  margin: 0px 341px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 9em 0 16px;
 }
 
 .title-text {
   font-size: 22px;
   margin-bottom: 20px;
   margin-top: -63px;
-  margin-left: 294px;
-  color: white;
+  color: #373870;
 }
 
 .input-new-topic {
   display: flex;
   flex-flow: row;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
+  align-items: center;
+  padding: 14px 44px;
+  background: transparent;
+  border: 3px solid white;
+}
+
+.form-control {
+  border-radius: 30px;
+  background-color: rgba(244, 244, 244, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+  background-color: rgba(244, 244, 244, 0.3);
 }

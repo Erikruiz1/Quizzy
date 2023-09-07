@@ -4,9 +4,10 @@
     <%= image_tag("avatar.png") %>
     <h1><%= current_user.username.capitalize %>'s Stats</h1>
   </div>
-  <div>
-      <h2 class="title-text">Create your own topic!</h2>
+
+  <section>
     <div class="create-your-topic">
+    <h2 class="title-text">Create your own topic!</h2>
         <div data-controller="form">
           <%= simple_form_for @topic,
             data:  {action: 'submit->form#createCard', form_target: "form"} do |f| %>
@@ -26,68 +27,86 @@
                       form_target: "category"
                     }
                   } %>
-              <%= f.button :submit, "Create topic", id: "topic-submit-button" %>
+              <%= f.button :submit, "Create topic", class: "btn-hover" %>
             </div>
           <% end %>
         </div>
     </div>
-  </div>
+  </section>
+  <div id="create-card-container" class="new-cards"></div>
 
 
   <%# Display completed games %>
-  <h2>Completed games</h2>
+  <div class="title-dashboard">
+    <h2>Completed games</h2>
+  </div>
 
   <% count = 0 %>
   <% @display_states_completed.each do |display_states| %>
-    <p>
-      Your topics were:
-      <% @topics_completed[count].each do |topic|%>
-        <%= topic.name %> ,
-      <% end %>
-      you answered <%= @correct_questions_completed[count] %>
-      / <%= @completed_games[count].number_of_questions %> questions correctly.
-    </p>
+    <div class="result-container">
+      <div class="topic-and-count">
+        <span id="completed-name">
+          <% @topics_completed[count].each do |topic|%>
+            <p><%= topic.name %></p>
+          <% end %>
+        </span>
+        <span>
+        <%= @correct_questions_completed[count] %>
+        / <%= @completed_games[count].number_of_questions %> questions correctly!
+        </span>
+      </div>
 
-    <% count += 1 %>
-    <div class="progress-bar">
-      <% display_states.each do |d| %>
-        <% if d == "correct" %>
-          <div class="box answered-true"></div>
-        <% elsif d == "incorrect"%>
-          <div class="box answered-false"></div>
-        <% else %>
-          <div class="box answered-empty"></div>
-        <% end %>
-      <% end %>
+        <% count += 1 %>
+        <div class="progress-bar dashboard-progress-bar">
+          <% display_states.each do |d| %>
+            <% if d == "correct" %>
+              <div class="box answered-true"></div>
+            <% elsif d == "incorrect"%>
+              <div class="box answered-false"></div>
+            <% else %>
+              <div class="box answered-empty"></div>
+            <% end %>
+          <% end %>
+        </div>
     </div>
   <% end %>
 
   <%# Display open games %>
-  <h2>Open games</h2>
-  <% count = 0 %>
-  <% @display_states_open.each do |display_states| %>
-    <p>
-      Your topics are:
-      <% @topics_open[count].each do |topic|%>
-        <%= topic.name %> ,
-      <% end %>
-      you answered <%= @correct_questions_open[count] %>
-      / <%= @open_games[count].number_of_questions %> questions correctly.
-    </p>
-
-    <div class="progress-bar">
-      <% display_states.each do |d| %>
-        <% if d == "correct" %>
-          <div class="box answered-true"></div>
-        <% elsif d == "incorrect"%>
-          <div class="box answered-false"></div>
-        <% else %>
-          <div class="box answered-empty"></div>
-        <% end %>
-      <% end %>
-      <%= link_to "Resume", game_path(@open_games[count]) %>
-      <% count += 1 %>
+  <section id="open-games">
+    <div class="title-dashboard">
+      <h2>Open games</h2>
     </div>
-  <% end %>
+
+    <% count = 0 %>
+    <% @display_states_open.each do |display_states| %>
+      <div class="result-container">
+        <div class="topic-and-count">
+          <span id="topic-name">
+            <% @topics_open[count].each do |topic|%>
+              <p><%= topic.name %></p>
+            <% end %>
+          </span>
+          <span>
+            <%= @correct_questions_open[count] %>
+            / <%= @open_games[count].number_of_questions %> questions correct!
+          </span>
+        </div>
+
+        <div class="progress-bar dashboard-progress-bar">
+          <% display_states.each do |d| %>
+            <% if d == "correct" %>
+              <div class="box answered-true"></div>
+            <% elsif d == "incorrect"%>
+              <div class="box answered-false"></div>
+            <% else %>
+              <div class="box answered-empty"></div>
+            <% end %>
+          <% end %>
+          <%= link_to "Try Again", game_path(@open_games[count]), class: "try-again-btn" %>
+          <% count += 1 %>
+        </div>
+      </div>
+    <% end %>
+  </section>
 
 </div>
