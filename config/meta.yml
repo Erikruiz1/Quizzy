@@ -1,0 +1,5 @@
+meta_product_name: "Quizzy"
+meta_title: "Quizzy - Test your knowledge in different topics together with your friends"
+meta_description: "App that lets you test your knowledge in different topics"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
