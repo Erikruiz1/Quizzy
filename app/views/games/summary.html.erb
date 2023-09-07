@@ -16,14 +16,12 @@
             <p class="p_title">You have no correct answers!</p>
           <% end %>
       </div>
-      <%= link_to new_game_path, class: "btn-new-summary" do %>
-          <p>Play again</p>
-        <% end %>
-      <div class="">
+
+      <div class="question-summary">
         <% @questions.each do |question| %>
-          <p><%= question.content %></p>
-          <p>Answer: <%= question.answer %> /
-          <% if question.guesses.last.content.nil? %>
+          <p id="q-font"><%= question.content %></p>
+          <p class="p-font">Correct answer: <span id="answer"><%= question.answer %></span> /
+            <% if question.guesses.last.content.nil? %>
           <span class="answer-false">You skipped the question</span>
           <% elsif question.guesses.last.correct %>
             Your answer: <span id="answer-true"><%= question.guesses.last.content %></p></span>
@@ -31,6 +29,10 @@
             Your answer: <span class="answer-false"><%= question.guesses.last.content %></p></span>
           <% end %>
         <% end %>
+      </div>
+      <div id="link-btns-summary">
+        <%= link_to "Play again", new_game_path, class: "btn-summary" %>
+        <%= link_to "Dashboard", user_path(current_user), class: "btn-summary" %>
       </div>
     </section>
 
