@@ -1,18 +1,14 @@
 
 .show-page-card {
-  position: relative;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   font-family: $headers-font;
   margin: 0 6vh 8vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding: 50px;
   background-color: #FFFFFF;
   border-radius: 50px;
-  height: 50vh;
 }
 
 #q-header {
