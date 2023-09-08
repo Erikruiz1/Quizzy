@@ -1,6 +1,9 @@
+
 .title-dashboard h2{
   color: #373870;
-  margin-top: 70px;
+  margin-top: 50px;
+  margin-left: 70px;
+  font-size: 24px;
 }
 
 #open-games {
@@ -9,7 +12,8 @@
 
 
 .try-again-btn {
-  background-color: rgba(128, 128, 128, 0.7);
+  background-color: #ab84d4;
+  border: 2px solid white;
   font-family: Dela Gothic One;
   font-size: 15px;
   border-radius: 4em;
@@ -20,17 +24,20 @@
   text-align: center;
   margin-right: 10px;
   &:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgb(190, 189, 191);
+    background-color: blueviolet;
     border-radius: 50px;
+
   }
 }
 
+
 .result-container {
   background-color: transparent;
-  border-radius: 90px;
+  border-radius: 100px;
   padding: 20px;
   border: 3px solid white;
-  margin: 30px 0;
+  margin: 30px 70px;
 }
 
 .topic-and-count {
