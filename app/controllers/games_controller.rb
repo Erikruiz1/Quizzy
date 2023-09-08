@@ -137,7 +137,7 @@ class GamesController < ApplicationController
 
   def build_prompt(topics_string)
     "Generate a JSON with #{@game.number_of_questions}
-      questions, they should not be multiple choice questions. Include a key for the \"questions\".
+      quiz questions, they should not be multiple choice questions. Include a key for the \"questions\".
       The questions should require open ended answers to make it more challenging.
       Include a key for the \"topics\" #{topics_string},
       you can also mix different topics in a single question.
